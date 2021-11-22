@@ -9,11 +9,19 @@
     <!-- Prod stylesheet link -->
     <!-- <link rel="stylesheet" href="/styles"> -->
     <link rel="stylesheet" href="./index.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Play:wght@400;700&display=swap');
+    </style>
 </head>
 <body>
     <header id="section-head" class="bg-gradient">
-        <div class="container">
+        <div class="container flex space-bet center-align">
             <h1 class="logo">Cajun Dictionary</h1>
+
+            <div class="session-nav">
+                <a href="#">Register</a>
+                <a href="#">Login</a>
+            </div>
         </div>
     </header>
 
@@ -35,10 +43,12 @@
 
             <section style="width: 45%;" class="container bg-red1" id="word_of_day">
 
-                <h3>Word of the Day</h3>
-                <span>November 22, 2021</span>
+                <div class="title">
+                    <h3>Word of the Day</h3>
+                    <span class="date">November 22, 2021</span>
+                </div>
     
-                <div style="color: var(--red1);" class="container bg-white">
+                <div class="container bg-white">
                     <h3>Mais Yeah</h3>
                     <span class="pronunciation">MAY yeh</span>
                     <div class="definition">     
@@ -66,8 +76,11 @@
     
     
             <section style="width: 45%;" class="container bg-red1">
-                <div class="container">
+                <div class="title">
                     <h3>Some other content for this section</h3>
+                </div>
+                <div class="container bg-white">
+                    <p>A preview of some text content on this side of the page</p>
                 </div>
             </section>
 

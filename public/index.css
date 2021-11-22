@@ -8,11 +8,14 @@
 }
 
 body {
-    background-color: rgb(249, 243, 202);
+    background-color: rgb(242, 238, 213);
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Play', sans-serif;
 }
 
 section {
     box-shadow: 5px 5px 10px black;
+    margin: 1%;
 }
 
 nav {
@@ -21,13 +24,22 @@ nav {
     align-items: center;
 }
 
-nav a {
-    color: rgb(205, 205, 205);
+nav a, .session-nav a {
+    color: rgb(213, 212, 212);
     text-decoration: none;
 }
 
-nav a:hover {
+nav a:hover, .session-nav a:hover {
     color: white;
+}
+
+.session-nav {
+    width: 8%;
+}
+
+.session-nav a {
+    margin-right: 4%;
+    font-size: larger;
 }
 
 .nav-item {
@@ -42,8 +54,16 @@ nav a:hover {
     display: flex;
 }
 
-.space-even {
-    justify-content: space-evenly;
+.space-bet {
+    justify-content: space-between;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.center-align {
+    align-items: center;
 }
 
 .container {
@@ -69,8 +89,15 @@ nav a:hover {
 
 .bg-white {
     background-color: whitesmoke;
+    color: var(--red1);
 }
 
 .definition, .use-case {
     margin: 2%;
+}
+
+.title {
+    margin-bottom: 2%;
+    border-bottom: 1px solid whitesmoke;
+    font-size: larger;
 }
