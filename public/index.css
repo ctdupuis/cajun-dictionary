@@ -1,3 +1,28 @@
+:root {
+    --red1: #800909;
+    --red2: #661111;
+}
+
 * {
     margin: 0
+}
+
+.wrapper {
+    padding: 2%;
+}
+
+.flex {
+    display: flex;
+}
+
+.logo-container {
+    padding: 2%;
+}
+
+.logo {
+    color: whitesmoke;
+}
+
+#section-head {
+    background-color: var(--red2);
 }
