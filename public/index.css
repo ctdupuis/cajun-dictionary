@@ -1,8 +1,13 @@
+/* ROOT VARIABLES */
 :root {
     --red1: #800909;
     --red2: #661111;
 }
 
+/* IMPORTS */
+@import url('https://css.gg/eye-alt.css');
+
+/* PAGE LAYOUT */
 * {
     margin: 0
 }
@@ -11,39 +16,6 @@ body {
     background-color: rgb(242, 238, 213);
     font-family: 'Permanent Marker', cursive;
     font-family: 'Play', sans-serif;
-}
-
-section {
-    box-shadow: 5px 5px 10px black;
-    margin: 1%;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-nav a, .session-nav a {
-    color: rgb(213, 212, 212);
-    text-decoration: none;
-}
-
-nav a:hover, .session-nav a:hover {
-    color: white;
-}
-
-.session-nav {
-    width: 8%;
-}
-
-.session-nav a {
-    margin-right: 4%;
-    font-size: larger;
-}
-
-.nav-item {
-    padding: 1%;
 }
 
 .wrapper {
@@ -71,10 +43,50 @@ nav a:hover, .session-nav a:hover {
     color: whitesmoke;
 }
 
+
+/* PAGE CONTENT */
+section {
+    box-shadow: 5px 5px 10px black;
+    margin: 1%;
+}
+
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a, .session-nav a, aside a {
+    color: rgb(213, 212, 212);
+    text-decoration: none;
+}
+
+nav a:hover, .session-nav a:hover, aside a:hover {
+    color: white;
+}
+
+.session-nav {
+    width: 8%;
+}
+
+.session-nav a {
+    margin-right: 4%;
+    font-size: larger;
+}
+
+.nav-item {
+    padding: 1%;
+}
+
+
 .logo {
     color: whitesmoke;
 }
 
+
+/*  BACKGROUNDS */
 .bg-red1 {
     background-color: var(--red1);
 }
@@ -92,6 +104,7 @@ nav a:hover, .session-nav a:hover {
     color: var(--red1);
 }
 
+/* HOME PAGE */
 .definition, .use-case {
     margin: 2%;
 }
@@ -101,3 +114,49 @@ nav a:hover, .session-nav a:hover {
     border-bottom: 1px solid whitesmoke;
     font-size: larger;
 }
+
+/* FORMS */
+
+#register {
+    text-align: center;
+}
+
+#username, #password, .submit {
+    margin-top: 1%;
+}
+
+input {
+    outline: none;
+}
+
+input:focus {
+    box-shadow: inset -5px -5px 20px var(--red2);
+    color: whitesmoke;
+}
+
+input[type=checkbox]:focus {
+    box-shadow: none;
+}
+
+label {
+    margin-right: 1%;
+}
+
+.submit {
+    color: var(--red2);
+    background-color: whitesmoke;
+    border: none;
+    transition: 0.5s;
+}
+
+.submit:hover {
+    color: whitesmoke;
+    background-image: radial-gradient(var(--red2), var(--red1)) ;
+    cursor: pointer;
+}
+
+aside {
+    text-align: center;
+    margin-top: 1%;
+}
+

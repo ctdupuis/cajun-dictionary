@@ -14,28 +14,33 @@
     </style>
 </head>
 <body>
+    <!-- This HTML needs to be on every page -->
     <header id="section-head" class="bg-gradient">
         <div class="container flex space-bet center-align">
             <h1 class="logo">Cajun Dictionary</h1>
 
             <div class="session-nav">
-                <a href="#">Register</a>
-                <a href="#">Login</a>
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
             </div>
         </div>
     </header>
 
     <nav class="bg-red2">
         <div class="nav-item">
-            <a href="#">List of Words</a>
+            <a href="/">Home</a>
         </div>
         <div class="nav-item">
-            <a href="#">Add Word</a>
+            <a href="/list">List of Words</a>
         </div>
         <div class="nav-item">
-            <a href="#">About</a>
+            <a href="/add">Add Word</a>
+        </div>
+        <div class="nav-item">
+            <a href="/about">About</a>
         </div>
     </nav>
+    <!-- This HTML needs to be on every page -->
     
     <div class="wrapper">
 
@@ -91,6 +96,7 @@
     
     <!-- Prod script link -->
     <!-- <script src="/js"></script> -->
+    <script src="/node_modules/axios/dist/axios.min.js"></script>
     <script src="./index.js"></script>
 </body>
 </html>

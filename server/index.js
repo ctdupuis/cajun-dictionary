@@ -10,7 +10,8 @@ app.use(express.json());
 app.use(cors());
 
 const {
-    home
+    home,
+    register
 } = require("./controller.js")
 
 // Links for using styles/JS in prod
@@ -28,6 +29,7 @@ app.use(express.static("public"));
 
 
 app.get("/", home);
+app.get("/register", register);
 
 
 const PORT = process.env.PORT || 3000
