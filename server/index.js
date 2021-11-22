@@ -13,6 +13,7 @@ const {
     home
 } = require("./controller.js")
 
+// Links for using styles/JS in prod
 app.get("/styles", (req, res) => {
     res.sendFile(path.join(__dirname, "public/index.css"));
 });
@@ -21,10 +22,13 @@ app.get("/js", (req, res) => {
     res.sendFile(path.join(__dirname, "public/index.js"));
 });
 
+app.use(express.static("public"));
+//
+
+
 
 app.get("/", home);
 
-app.use(express.static("public"));
 
 const PORT = process.env.PORT || 3000
 

@@ -7,6 +7,33 @@
     margin: 0
 }
 
+body {
+    background-color: rgb(249, 243, 202);
+}
+
+section {
+    box-shadow: 5px 5px 10px black;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    color: rgb(205, 205, 205);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.nav-item {
+    padding: 1%;
+}
+
 .wrapper {
     padding: 2%;
 }
@@ -15,14 +42,35 @@
     display: flex;
 }
 
-.logo-container {
+.space-even {
+    justify-content: space-evenly;
+}
+
+.container {
     padding: 2%;
+    color: whitesmoke;
 }
 
 .logo {
     color: whitesmoke;
 }
 
-#section-head {
+.bg-red1 {
+    background-color: var(--red1);
+}
+
+.bg-red2 {
     background-color: var(--red2);
+}
+
+.bg-gradient {
+    background-image: linear-gradient(var(--red1), var(--red2), var(--red1));
+}
+
+.bg-white {
+    background-color: whitesmoke;
+}
+
+.definition, .use-case {
+    margin: 2%;
 }

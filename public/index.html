@@ -11,16 +11,69 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <header id="section-head">
-        <div class="logo-container">
-            <h2 class="logo">Cajun Dictionary</h2>
+    <header id="section-head" class="bg-gradient">
+        <div class="container">
+            <h1 class="logo">Cajun Dictionary</h1>
         </div>
     </header>
 
+    <nav class="bg-red2">
+        <div class="nav-item">
+            <a href="#">List of Words</a>
+        </div>
+        <div class="nav-item">
+            <a href="#">Add Word</a>
+        </div>
+        <div class="nav-item">
+            <a href="#">About</a>
+        </div>
+    </nav>
+    
     <div class="wrapper">
-        <section id="word_of_day">
-            <h3>Today's word of the day</h3>
-        </section>
+
+        <div class="flex space-even">
+
+            <section style="width: 45%;" class="container bg-red1" id="word_of_day">
+
+                <h3>Word of the Day</h3>
+                <span>November 22, 2021</span>
+    
+                <div style="color: var(--red1);" class="container bg-white">
+                    <h3>Mais Yeah</h3>
+                    <span class="pronunciation">MAY yeh</span>
+                    <div class="definition">     
+                        <p>
+                            <strong>Definition:</strong>
+
+                            <blockquote>
+                                Showing affirmation to a question that the person answering belives is an obvious answer
+                            </blockquote>
+                        </p>
+                    </div>
+
+                    <div class="use-case">
+                        <p>
+                            <strong>Use Case:</strong>
+
+                            <blockquote>
+                                "Hey man, did you watch the Saints play yesterday?"
+                                "Mais Yeah, I never miss a game"
+                            </blockquote>
+                        </p>
+                    </div>
+                </div>
+            </section>
+    
+    
+            <section style="width: 45%;" class="container bg-red1">
+                <div class="container">
+                    <h3>Some other content for this section</h3>
+                </div>
+            </section>
+
+        </div>
+
+
     </div>
     
     <!-- Prod script link -->
