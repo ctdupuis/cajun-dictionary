@@ -1,3 +1,7 @@
+const devUrl = 'http://localhost:3000'
+
+
+
 const form = document.getElementById('register');
 const username = document.getElementById('username');
 const password = document.getElementById('password');
@@ -9,7 +13,9 @@ handleSubmit = e => {
         username: username.value,
         password: password.value
     }
-    console.log(obj)
+    
+    axios.post(`${devUrl}/register`, obj)
+    .then(res => console.log(res.data))
 }
 
 togglePassword = e => {
