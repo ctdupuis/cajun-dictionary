@@ -7,4 +7,9 @@ checkSession = async () => {
     console.log(data)
 }
 
-document.addEventListener('DOMContentLoaded', checkSession)
+document.getElementById('logout').addEventListener('click', () => {
+    axios.delete('http://localhost:3000/logout', { withCredentials: true })
+    .then(res => console.log(res.data))
+})
+
+document.addEventListener('DOMContentLoaded', checkSession);

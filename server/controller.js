@@ -14,6 +14,7 @@ const sequelize = new Sequelize(DATABASE_URL, {
         }
     }
 })
+let session;
 
 module.exports = {
     home: (req, res) => res.status(200).sendFile(path.join(__dirname, "../public/index.html")),
@@ -42,19 +43,16 @@ module.exports = {
         // login user here
     },
     auth: (req, res) => {
-        if (req.session.userId) {
-            sequelize.query(
-                `
-                    select id, username from users where id='${req.session.userId}'
-                `
-            )
-            .then(dbRes => res.status(200).send(dbRes[0]))
+        if (req.session.user) {
+            res.status(200).send(req.session.user)
         } else {
             res.send(req.session)
         }
     },
     logout: (req, res) => {
+        console.log(req.session)
         req.session.destroy();
-        res.redirect("/");
+        console.log(req.session)
+        res.status(200).send("user logged out");
     }
 }

@@ -18,7 +18,7 @@ app.use(cors());
 
 let session = {
     secret: process.env.SESSION_SECRET,
-    cookie: { secure: true },
+    cookie:  { maxAge: 1000 },
     saveUninitialized: true,
     resave: false
 };
@@ -59,7 +59,7 @@ app.post("/register", createAccount);
 app.get("/login", login);
 app.post("/login", loginUser);
 
-app.get("/logout", logout);
+app.delete("/logout", logout);
 
 
 const PORT = process.env.PORT || 3000
