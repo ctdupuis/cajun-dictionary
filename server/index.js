@@ -12,10 +12,12 @@ app.use(cors());
 const {
     home,
     register,
-    createAccount
+    createAccount,
+    login,
+    loginUser
 } = require("./controller.js")
 
-// Links for using styles/JS in prod
+// Production links for serving static files
 app.get("/styles", (req, res) => {
     res.sendFile(path.join(__dirname, "public/stylesheets"));
 });
@@ -25,13 +27,17 @@ app.get("/js", (req, res) => {
 });
 
 app.use(express.static("public"));
-//
+// Production links fo serving static files
 
 
 
 app.get("/", home);
+
 app.get("/register", register);
 app.post("/register", createAccount);
+
+app.get("/login", login);
+app.post("/login", loginUser);
 
 
 const PORT = process.env.PORT || 3000
