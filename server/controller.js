@@ -27,21 +27,34 @@ module.exports = {
                 insert into users (id, username, password)
                 values ('${user.id}', '${user.username}', '${user.password}');
 
-                select * from users where id='${user.id}';
+                select id, username from users where id='${user.id}';
             `
         )
         .then(dbRes => {
-            let copy = {
-                ...dbRes[0]
-            }
-            delete copy[0].password;
-            res.status(200).send(copy)
+            req.session.userId = user.id;
+            res.status(200).send(dbRes[0])
+            res.redirect("/")
         })
         .catch(err => res.status(400).send(err))
-        // res.status(200).send(user);
     },
     login: (req, res) => res.status(200).sendFile(path.join(__dirname, "../public/login.html")),
     loginUser: (req, res) => {
         // login user here
+    },
+    auth: (req, res) => {
+        if (req.session.userId) {
+            sequelize.query(
+                `
+                    select id, username from users where id='${req.session.userId}'
+                `
+            )
+            .then(dbRes => res.status(200).send(dbRes[0]))
+        } else {
+            res.send(req.session)
+        }
+    },
+    logout: (req, res) => {
+        req.session.destroy();
+        res.redirect("/");
     }
 }
