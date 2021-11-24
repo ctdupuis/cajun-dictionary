@@ -12,4 +12,10 @@ document.getElementById('logout').addEventListener('click', () => {
     .then(res => console.log(res.data))
 })
 
+handleWordOfDay = () => {
+    let date = new Date();
+    document.getElementById('date').innerText = date.toDateString();
+}
+
+document.addEventListener('DOMContentLoaded', handleWordOfDay);
 document.addEventListener('DOMContentLoaded', checkSession);
