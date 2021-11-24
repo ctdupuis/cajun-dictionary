@@ -38,7 +38,8 @@ const {
     addPage,
     list,
     listPage,
-    showWord
+    showWord,
+    addTerm
 } = require("./controller.js")
 
 // Production links for serving static files
@@ -69,6 +70,7 @@ app.get("/logout", logout);
 app.get("/about", about);
 
 app.get("/add", addPage);
+app.post("/add", addTerm);
 
 app.get("/list", listPage);
 app.get("/word/:id", showWord);

@@ -140,7 +140,7 @@ nav a:hover, .session-nav a:hover, aside a:hover {
 
 /* FORMS */
 
-#register, #add-word {
+#register, #add-term {
     text-align: center;
 }
 
@@ -150,6 +150,8 @@ nav a:hover, .session-nav a:hover, aside a:hover {
 
 input, textarea {
     outline: none;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Play', sans-serif;
 }
 
 textarea {
@@ -203,7 +205,7 @@ aside {
     text-decoration: underline;
 }
 
-.word-wrapper {
+.term-wrapper {
     margin-top: 1%;
 }
 

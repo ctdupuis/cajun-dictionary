@@ -5,7 +5,6 @@ require('dotenv').config();
 
 const { DATABASE_URL } = process.env;
 const Sequelize = require('sequelize');
-const { dirname } = require("path");
 
 const sequelize = new Sequelize(DATABASE_URL, {
     dialect: 'postgres', 
@@ -15,13 +14,11 @@ const sequelize = new Sequelize(DATABASE_URL, {
         }
     }
 })
-let session;
 
 module.exports = {
     home: (req, res) => res.status(200).sendFile(path.join(__dirname, "../public/index.html")),
     register: (req, res) => res.status(200).sendFile(path.join(__dirname, "../public/register.html")),
     createAccount: (req, res) => {
-        // create account here
         let { username, password } = req.body;
         let user = new User(username, password);
         sequelize.query(
@@ -39,7 +36,6 @@ module.exports = {
     },
     login: (req, res) => res.status(200).sendFile(path.join(__dirname, "../public/login.html")),
     loginUser: (req, res) => {
-        // login user here
         let { username, password } = req.body;
         let user = new User(username, password);
         if (user.authenticate(password)) {
@@ -63,6 +59,17 @@ module.exports = {
     },
     about: (req, res) => res.sendFile(path.join(__dirname, "../public/about.html")),
     addPage: (req, res) => res.sendFile(path.join(__dirname, "../public/add.html")),
+    addTerm: (req, res) => {
+        let { name, pronunciation, definition, useCase } = req.body;
+        sequelize.query(
+            `
+                insert into terms (name, pronunciation, definition, use_case, user_id)
+                values ('${name}', '${pronunciation}', '${definition}', '${useCase}', '${req.session.id}');
+            `
+        )
+        .then(dbRes => res.status(200).send(dbRes[0]))
+        .catch(err => console.log("Error:", err))
+    },
     listPage: (req, res) => res.sendFile(path.join(__dirname, "../public/list.html")),
     showWord: (req, res) => {
         res.status(200).sendFile(path.join(__dirname, "../public/show.html"))

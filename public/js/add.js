@@ -1,18 +1,46 @@
-let form = document.getElementById('add-word');
-let word = document.getElementById('word');
+let form = document.getElementById('add-term');
+let term = document.getElementById('term');
 let definition = document.getElementById('definition');
 let useCase = document.getElementById('use-case');
+let pronunciation = document.getElementById('pronunciation');
 
+checkSession = async () => {
+    const response = await axios.get('http://localhost:3000/auth', 
+    { withCredentials: true });
+    const data = response.data;
+    if (!data.username) {
+        window.location.replace("/")
+    } else {
+        let { id, username } = data;
+        let html = `
+        <span class="username">Welcome, ${username}</span>
+        <button onclick="logout()" id="logout">Log Out</button>
+        `
+        document.querySelector('.session-nav').innerHTML = html;
+    }
+}
+
+logout = () => {
+    axios.get('http://localhost:3000/logout', { withCredentials: true })
+    .then(res => window.location.replace("/"))
+}
 
 handleSubmit = e => {
     e.preventDefault();
     
     let obj = {
-        word: word.value,
+        name: term.value,
+        pronunciation: pronunciation.value,
         definition: definition.value,
-        useCase: useCase.value
+        useCase: useCase.value,
+        
     }
     console.log(obj)
+    axios.post('http://localhost:3000/add', obj)
+    .then(res => console.log(res.data))
+
+    form.reset();
 }
 
 form.addEventListener('submit', handleSubmit);
+document.addEventListener('DOMContentLoaded', checkSession);
