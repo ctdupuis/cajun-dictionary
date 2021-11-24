@@ -5,11 +5,11 @@ const path = require("path");
 const app = express();
 
 const cors = require('cors');
+require('dotenv').config();
 
 const sessions = require("express-session");
 const cookieParser = require("cookie-parser");
 
-require('dotenv').config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,7 +19,7 @@ app.use(cors());
 let session = {
     secret: process.env.SESSION_SECRET,
     cookie:  { maxAge: 1000 },
-    saveUninitialized: true,
+    saveUninitialized: false,
     resave: false
 };
 

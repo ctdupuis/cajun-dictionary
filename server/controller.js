@@ -28,8 +28,8 @@ module.exports = {
                 insert into users (id, username, password)
                 values ('${user.id}', '${user.username}', '${user.password}');
 
-                select id, username from users where id='${user.id}';
-            `
+                `
+                // select id, username from users where id='${user.id}';
         )
         .then(dbRes => {
             req.session.userId = user.id;
@@ -51,6 +51,7 @@ module.exports = {
     },
     logout: (req, res) => {
         console.log(req.session)
+        // res.clearCookie('connect.sid', {path: '/'}).status(200).send('Ok.')
         req.session.destroy();
         console.log(req.session)
         res.status(200).send("user logged out");
