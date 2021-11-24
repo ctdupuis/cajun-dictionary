@@ -10,7 +10,7 @@ The required items are starred.
 
 [] project includes a wireframe for each view
 
-[] project includes a list of MVP features *
+[X] project includes a list of MVP features *
 
 [] project includes a data model
 
@@ -18,9 +18,9 @@ The required items are starred.
 
 [] app has at least 3 main features *
 
-[] front end makes a request to the server and handles the response *
+[X] front end makes a request to the server and handles the response *
 
-[] front end is interactive *
+[X] front end is interactive *
 
 [X] app has custom styling *
 
@@ -34,7 +34,7 @@ The required items are starred.
 
 [X?] styling includes flexbox
 
-[] at least 1 view is responsive
+[X] at least 1 view is responsive
 
 [] styling includes animations
 

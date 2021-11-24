@@ -89,3 +89,8 @@ module.exports = {
         // query database, send response to show for population
     }
 }
+
+// SQL query for getting term information:
+// select t.term_id, t.name, t.pronunciation, t.definition, t.use_case, u.username from terms t 
+// join users u on 
+// t.user_id = u.user_id;
