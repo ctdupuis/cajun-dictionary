@@ -57,5 +57,6 @@ module.exports = {
         res.status(200).send("user logged out");
     },
     about: (req, res) => res.sendFile(path.join(__dirname, "../public/about.html")),
-    addPage: (req, res) => res.sendFile(path.join(__dirname, "../public/add.html"))
+    addPage: (req, res) => res.sendFile(path.join(__dirname, "../public/add.html")),
+    listPage: (req, res) => res.sendFile(path.join(__dirname, "../public/list.html"))
 }

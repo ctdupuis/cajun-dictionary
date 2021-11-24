@@ -137,11 +137,6 @@ textarea {
     width: 25%;
 }
 
-/* input:focus, textarea:focus {
-    box-shadow: inset -1px -1px 20px var(--red2);
-    color: whitesmoke;
-} */
-
 input[type=checkbox]:focus {
     box-shadow: none;
 }
@@ -168,3 +163,24 @@ aside {
     margin-top: 1%;
 }
 
+/* LIST PAGE */
+
+.list {
+    text-decoration: none;
+    color: var(--red1);
+    display: block;
+}
+
+.list:hover {
+    text-decoration: underline;
+}
+
+.word-wrapper {
+    margin-top: 1%;
+}
+
+.list-title {
+    border-bottom: 1px solid var(--red2);
+    font-size: larger;
+    color: var(--red2);
+}
