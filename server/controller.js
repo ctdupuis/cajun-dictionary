@@ -1,10 +1,11 @@
 const path = require("path");
-const User = require("../models/User");
+const bcrypt = require('bcryptjs');
 
 require('dotenv').config();
 
 const { DATABASE_URL } = process.env;
 const Sequelize = require('sequelize');
+const uniqid = require('uniqid');
 
 const sequelize = new Sequelize(DATABASE_URL, {
     dialect: 'postgres', 
@@ -20,37 +21,47 @@ module.exports = {
     register: (req, res) => res.status(200).sendFile(path.join(__dirname, "../public/register.html")),
     createAccount: (req, res) => {
         let { username, password } = req.body;
-        let user = new User(username, password);
+        let id = uniqid();
+        const salt = bcrypt.genSaltSync(6);
+        password = bcrypt.hashSync(password, salt);
         sequelize.query(
             `
                 insert into users (user_id, username, password)
-                values ('${user.id}', '${user.username}', '${user.password}');
+                values ('${id}', '${username}', '${password}');
             `
         )
         .then(dbRes => {
-            req.session.user = user;
-            delete req.session.user.password;
+            req.session.user = {id: id, username: username}
             res.status(200).send(req.session)
         })
-        .catch(err => res.status(400).send(err))
+        .catch(err => console.log("error: ", err))
     },
     login: (req, res) => res.status(200).sendFile(path.join(__dirname, "../public/login.html")),
     loginUser: (req, res) => {
         let { username, password } = req.body;
-        let user = new User(username, password);
-        if (user.authenticate(password)) {
-            req.session.user = user
-            delete req.session.user.password
-            res.status(200).send("Login success")
-        } else {
-            res.status(400).send("Invalid username or password")
-        }
+
+        sequelize.query(
+            `
+                select * from users where username='${username}';
+            `
+        )
+        .then(dbRes => {
+            const existingUser = dbRes[0].pop();
+            const authenticated = bcrypt.compareSync(password, existingUser.password);
+            if (authenticated) {
+                req.session.user = existingUser;
+                delete req.session.user.password;
+                res.status(200).send("Login success");
+            } else {
+                res.status(400).send("Invalid username or password");
+            }
+        })
     },
     auth: (req, res) => {
         if (req.session.user) {
-            res.status(200).send(req.session.user)
+            res.status(200).send(req.session.user);
         } else {
-            res.status(200).send("No one is logged in")
+            res.status(200).send("No one is logged in");
         }
     },
     logout: (req, res) => {
@@ -60,11 +71,12 @@ module.exports = {
     about: (req, res) => res.sendFile(path.join(__dirname, "../public/about.html")),
     addPage: (req, res) => res.sendFile(path.join(__dirname, "../public/add.html")),
     addTerm: (req, res) => {
+        console.log("Sesh obj: ", req.session)
         let { name, pronunciation, definition, useCase } = req.body;
         sequelize.query(
             `
                 insert into terms (name, pronunciation, definition, use_case, user_id)
-                values ('${name}', '${pronunciation}', '${definition}', '${useCase}', '${req.session.id}');
+                values ('${name}', '${pronunciation}', '${definition}', '${useCase}', '${req.session.user.user_id}');
             `
         )
         .then(dbRes => res.status(200).send(dbRes[0]))
