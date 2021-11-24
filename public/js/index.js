@@ -2,14 +2,19 @@ checkSession = async () => {
     const response = await axios.get('http://localhost:3000/auth', 
     { withCredentials: true });
     const data = response.data;
+    // debugger
     if (data.user) {
-        //manipulate the DOM
+        let html = `
+        <span>Welcome, ${username}</span>
+        <a href="/logout">Log Out</a>
+        `
+        document.querySelector('.session-nav').innerHTML = html;
     } 
     console.log(data)
 }
 
 document.getElementById('logout').addEventListener('click', () => {
-    axios.delete('http://localhost:3000/logout', { withCredentials: true })
+    axios.get('http://localhost:3000/logout', { withCredentials: true })
     .then(res => console.log(res.data))
 })
 

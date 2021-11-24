@@ -64,7 +64,7 @@ app.post("/register", createAccount);
 app.get("/login", login);
 app.post("/login", loginUser);
 
-app.delete("/logout", logout);
+app.get("/logout", logout);
 
 app.get("/about", about);
 

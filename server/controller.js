@@ -26,12 +26,13 @@ module.exports = {
         let user = new User(username, password);
         sequelize.query(
             `
-                insert into users (id, username, password)
+                insert into users (user_id, username, password)
                 values ('${user.id}', '${user.username}', '${user.password}');
             `
         )
         .then(dbRes => {
             req.session.user = user;
+            delete req.session.user.password;
             res.status(200).send(req.session)
         })
         .catch(err => res.status(400).send(err))
@@ -39,9 +40,17 @@ module.exports = {
     login: (req, res) => res.status(200).sendFile(path.join(__dirname, "../public/login.html")),
     loginUser: (req, res) => {
         // login user here
+        let { username, password } = req.body;
+        let user = new User(username, password);
+        if (user.authenticate(password)) {
+            req.session.user = user
+            delete req.session.user.password
+            res.status(200).send("Login success")
+        } else {
+            res.status(400).send("Invalid username or password")
+        }
     },
     auth: (req, res) => {
-        console.log(req.session)
         if (req.session.user) {
             res.status(200).send(req.session.user)
         } else {
@@ -49,11 +58,8 @@ module.exports = {
         }
     },
     logout: (req, res) => {
-        console.log(req.session)
-        // res.clearCookie('connect.sid', {path: '/'}).status(200).send('Ok.')
         req.session.destroy();
-        console.log(req.session)
-        res.status(200).send("user logged out");
+        res.status(200).send("Log out success");
     },
     about: (req, res) => res.sendFile(path.join(__dirname, "../public/about.html")),
     addPage: (req, res) => res.sendFile(path.join(__dirname, "../public/add.html")),

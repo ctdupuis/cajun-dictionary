@@ -9,7 +9,8 @@ handleSubmit = e => {
         username: username.value,
         password: password.value
     }
-    console.log(obj)
+    axios.post(`http://localhost:3000/login`, obj)
+    .then(res => console.log(res.data))
 }
 
 togglePassword = e => {
