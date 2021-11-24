@@ -55,5 +55,6 @@ module.exports = {
         req.session.destroy();
         console.log(req.session)
         res.status(200).send("user logged out");
-    }
+    },
+    about: (req, res) => res.sendFile(path.join(__dirname, "../public/about.html"))
 }
