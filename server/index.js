@@ -37,7 +37,8 @@ const {
     about,
     addPage,
     list,
-    listPage
+    listPage,
+    showWord
 } = require("./controller.js")
 
 // Production links for serving static files
@@ -70,6 +71,7 @@ app.get("/about", about);
 app.get("/add", addPage);
 
 app.get("/list", listPage);
+app.get("/word/:id", showWord);
 
 
 const PORT = process.env.PORT || 3000

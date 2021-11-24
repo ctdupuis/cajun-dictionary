@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const { DATABASE_URL } = process.env;
 const Sequelize = require('sequelize');
+const { dirname } = require("path");
 
 const sequelize = new Sequelize(DATABASE_URL, {
     dialect: 'postgres', 
@@ -58,5 +59,10 @@ module.exports = {
     },
     about: (req, res) => res.sendFile(path.join(__dirname, "../public/about.html")),
     addPage: (req, res) => res.sendFile(path.join(__dirname, "../public/add.html")),
-    listPage: (req, res) => res.sendFile(path.join(__dirname, "../public/list.html"))
+    listPage: (req, res) => res.sendFile(path.join(__dirname, "../public/list.html")),
+    showWord: (req, res) => {
+        res.status(200).sendFile(path.join(__dirname, "../public/show.html"))
+        // grab word ID from params
+        // query database, send response to show for population
+    }
 }

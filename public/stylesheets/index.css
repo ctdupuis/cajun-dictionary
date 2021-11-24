@@ -163,6 +163,15 @@ aside {
     margin-top: 1%;
 }
 
+#pro-guide {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+#pro-guide:hover {
+    text-decoration: underline;
+}
+
 /* LIST PAGE */
 
 .list {
