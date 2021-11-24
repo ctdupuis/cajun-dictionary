@@ -3,6 +3,7 @@ const username = document.getElementById('username');
 const password = document.getElementById('password');
 const passToggle = document.getElementById('show');
 
+
 handleSubmit = e => {
     e.preventDefault();
     let obj = {
@@ -10,7 +11,12 @@ handleSubmit = e => {
         password: password.value
     }
     axios.post(`http://localhost:3000/login`, obj)
-    .then(res => console.log(res.data))
+    .then(res => {
+        if (res.data === "Login success") {
+            window.location.replace("/");
+        }
+    })
+    .catch(err => console.log(err))
 }
 
 togglePassword = e => {

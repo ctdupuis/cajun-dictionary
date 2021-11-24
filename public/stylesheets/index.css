@@ -72,7 +72,7 @@ nav a:hover, .session-nav a:hover, aside a:hover {
 }
 
 .session-nav {
-    width: 8%;
+    width: 15%;
 }
 
 .session-nav a {
@@ -87,6 +87,25 @@ nav a:hover, .session-nav a:hover, aside a:hover {
 
 .logo {
     color: whitesmoke;
+}
+
+.username {
+    display: block;
+    font-size: larger;
+}
+
+#logout {
+    background: none;
+    color: rgb(213, 212, 212);
+    border: none;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Play', sans-serif;
+    font-size: larger;
+}
+
+#logout:hover {
+    color: whitesmoke;
+    cursor: pointer;
 }
 
 

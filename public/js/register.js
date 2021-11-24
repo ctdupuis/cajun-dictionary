@@ -15,7 +15,11 @@ handleSubmit = e => {
     }
     
     axios.post(`${devUrl}/register`, obj)
-    .then(res => console.log(res.data))
+    .then(res => {
+        if (res.status === 200) {
+            window.location.replace("/")
+        }
+    })
 }
 
 togglePassword = e => {

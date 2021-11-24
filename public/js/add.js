@@ -3,6 +3,7 @@ let word = document.getElementById('word');
 let definition = document.getElementById('definition');
 let useCase = document.getElementById('use-case');
 
+
 handleSubmit = e => {
     e.preventDefault();
     
