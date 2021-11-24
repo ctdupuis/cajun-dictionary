@@ -34,7 +34,8 @@ const {
     loginUser,
     auth,
     logout,
-    about
+    about,
+    addPage
 } = require("./controller.js")
 
 // Production links for serving static files
@@ -63,6 +64,8 @@ app.post("/login", loginUser);
 app.delete("/logout", logout);
 
 app.get("/about", about);
+
+app.get("/add", addPage);
 
 
 const PORT = process.env.PORT || 3000

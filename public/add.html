@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Word | Cajun Dictionary</title>
+    <link rel="stylesheet" href="./stylesheets/index.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Play:wght@400;700&display=swap');
+    </style>
+</head>
+<body>
+     <!-- This HTML needs to be on every page -->
+     <header id="section-head" class="bg-gradient">
+        <div class="container flex space-bet center-align">
+            <h1 class="logo">Cajun Dictionary</h1>
+
+            <div class="session-nav">
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-red2">
+        <div class="nav-item">
+            <a href="/">Home</a>
+        </div>
+        <div class="nav-item">
+            <a href="/list">List of Words</a>
+        </div>
+        <div class="nav-item">
+            <a href="/add">Add Word</a>
+        </div>
+        <div class="nav-item">
+            <a href="/about">About</a>
+        </div>
+    </nav>
+    <!-- This HTML needs to be on every page -->
+
+    <div class="wrapper">
+
+        <section class="container bg-red1">
+
+            <form id="add-word">
+
+                <label for="word">Your Word</label>
+                <input id="word" type="text" />
+
+                <br />
+
+                <div class="flex center-align center-just">
+                    <label for="definition" autofocus>Definition</label>
+                    <textarea rows="10" style="margin-top: 1%;" id="definition"></textarea>
+                </div>
+
+                <br />
+
+                <div class="flex center-align center-just">
+                    <label for="use-case" autofocus>Use Case</label>
+                    <textarea rows="10" style="margin-top: 1%;" id="use-case"></textarea>
+                </div>
+
+
+                <br />
+                <button type="submit" class="submit">Submit Word</button>
+            </form>
+
+        </section>
+
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/add.js"></script>
+</body>
+</html>

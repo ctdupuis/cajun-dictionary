@@ -34,6 +34,10 @@ body {
     justify-content: space-around;
 }
 
+.center-just {
+    justify-content: center;
+}
+
 .center-align {
     align-items: center;
 }
@@ -117,7 +121,7 @@ nav a:hover, .session-nav a:hover, aside a:hover {
 
 /* FORMS */
 
-#register {
+#register, #add-word {
     text-align: center;
 }
 
@@ -125,14 +129,18 @@ nav a:hover, .session-nav a:hover, aside a:hover {
     margin-top: 1%;
 }
 
-input {
+input, textarea {
     outline: none;
 }
 
-input:focus {
-    box-shadow: inset -5px -5px 20px var(--red2);
-    color: whitesmoke;
+textarea {
+    width: 25%;
 }
+
+/* input:focus, textarea:focus {
+    box-shadow: inset -1px -1px 20px var(--red2);
+    color: whitesmoke;
+} */
 
 input[type=checkbox]:focus {
     box-shadow: none;
