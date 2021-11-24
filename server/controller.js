@@ -28,14 +28,11 @@ module.exports = {
             `
                 insert into users (id, username, password)
                 values ('${user.id}', '${user.username}', '${user.password}');
-
-                `
-                // select id, username from users where id='${user.id}';
+            `
         )
         .then(dbRes => {
-            req.session.userId = user.id;
-            res.status(200).send(dbRes[0])
-            res.redirect("/")
+            req.session.user = user;
+            res.status(200).send(req.session)
         })
         .catch(err => res.status(400).send(err))
     },
@@ -44,10 +41,11 @@ module.exports = {
         // login user here
     },
     auth: (req, res) => {
+        console.log(req.session)
         if (req.session.user) {
             res.status(200).send(req.session.user)
         } else {
-            res.send(req.session)
+            res.status(200).send("No one is logged in")
         }
     },
     logout: (req, res) => {

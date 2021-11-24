@@ -18,7 +18,7 @@ app.use(cors());
 
 let session = {
     secret: process.env.SESSION_SECRET,
-    cookie:  { maxAge: 1000 },
+    cookie:  { maxAge: 1000 * 60 * 60 },
     saveUninitialized: false,
     resave: false
 };
