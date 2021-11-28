@@ -99,7 +99,7 @@ module.exports = {
         // join users u on 
         // t.user_id = u.user_id;
     },
-    showWord: (req, res) => {
+    showTerm: (req, res) => {
         res.status(200).sendFile(path.join(__dirname, "../public/show.html"))
         // grab word ID from params
         // query database, send response to show for population
@@ -120,9 +120,34 @@ module.exports = {
 
                 insert into terms (name, pronunciation, definition, use_case, user_id)
                 values 
+
                 ('meenoo', 'MEEnoo', 'A cat.', '"Cha meenoo, come here and get you a treat"', 'enw183x2okwe3onlc'),
-                ('Mais Yeah', 'MAY yeh', 'Showing affirmation to a question that the person answering believes is an obvious answer', '"Hey man, did you see the Saints play yesterday?"\n"Mais Yeah, I never miss a game"', 'enw183x2okwe3onlc'),
-                ('boudin', 'BOOdah', 'Sausage casing stuffed with rice, meat and vegetables', '"Nothing beats a hot plate of boudin after a long day"', 'enw183x2okwe3onlc')
+
+                ('mais yeah', 'MAY yeh', 'Showing affirmation to a question that the person answering believes is an obvious answer', '"Hey man, did you see the Saints play yesterday?"\n"Mais yeah, I never miss a game."', 'enw183x2okwe3onlc'),
+
+                ('boudin', 'BOOdah', 'Sausage casing stuffed with rice, meat and vegetables', '"Nothing beats a hot plate of boudin after a long day."', 'enw183x2okwe3onlc'),
+
+                ('ahnvee', 'AHNvee', 'Hunger, craving', '"I got strong ahnvee for some étouffée right about now."', 'enw183x2okwe3onlc'),
+
+                ('boude', 'booDAY', 'To whine our pout', '"I don\t wanna hear you boude, do your homework and do it right."', 'enw183x2okwe3onlc'),
+
+                ('domion', 'dohMEEawn', 'A peeping tom', '"I hear Cherie say that Bubba down the road is a domion. She caught him staring outside her window the other night"', 'enw183x2okwe3onlc'),
+
+                ('each a one', 'eech A wun', 'One each', '"There are plenty of snacks to go around, get you each a one."', 'enw183x2okwe3onlc'),
+
+                ('drawz', 'DRAWZ', 'Underwear', '"Boy, pick ya damn drawz up off the floor! I been telling you this for a week now."', 'enw183x2okwe3onlc'),
+
+                ('fais do-do', 'fay DOH-doh', 'Go to sleep', '"Hey, it\s 9pm, that means it\s fais do-do time."', 'enw183x2okwe3onlc'),
+
+                ('ga lee', 'GAH lee', 'An expression of surprise or astonishment', '"I went to get me a new mower today but ga lee boy them mowers are expensive."', 'enw183x2okwe3onlc'),
+
+                ('hont', 'HAWN', 'A feeling of embarassment', '"I ripped my pants at the family reunion. Imagine the hont I felt after that."', 'enw183x2okwe3onlc'),
+
+                ('Nanan', 'nahNAHN', 'Term of endearment used to describe one\s godmother, synonymous with "Nanny"', '"Your Pa and I are going Zydeco dancing tonight, Nanan is gonna be watching you for til we get back"', 'enw183x2okwe3onlc'),
+
+                ('étoufée', 'ayTOOfay', 'French-creole dish that is typically served with shellfish over rice', '"Make sure you\re home in time for dinner, yer mama\s makin\ crawfish étoufée tonight."', 'enw183x2okwe3onlc'),
+
+                ('Parran', 'PARrah', 'Term of endearment used to describe one\s godfather', '"Hey Pa, Parran offered to take me fishing! Can I please go?"', 'enw183x2okwe3onlc')
                 ;
             `
         )

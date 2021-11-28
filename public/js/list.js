@@ -26,7 +26,7 @@ renderList = data => {
     let titleFound;
     data.forEach(term => {
         if (term.name.slice(0, 1).toUpperCase() !== letter) {
-            letter = term.name.slice(0, 1)
+            letter = term.name.slice(0, 1).toUpperCase();
         }
         titleFound = document.querySelector(`div[data-id='${letter}']`)
         if (!titleFound) {

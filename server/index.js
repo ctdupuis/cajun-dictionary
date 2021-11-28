@@ -38,7 +38,7 @@ const {
     addPage,
     list,
     listPage,
-    showWord,
+    showTerm,
     addTerm,
     getList,
     seed
@@ -76,7 +76,7 @@ app.post("/add", addTerm);
 
 app.get("/list", listPage);
 app.get("/list/all", getList);
-app.get("/list/:id", showWord);
+app.get("/list/:id", showTerm);
 
 
 const PORT = process.env.PORT || 3000
