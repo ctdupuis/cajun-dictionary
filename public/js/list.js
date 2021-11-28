@@ -23,6 +23,25 @@ getList = async () => {
     renderList(data);
 }
 
+format = string => {
+    // formats strings to avoid throwing errors for words using contractions
+    // will be called on pushing up and receiving back data
+    let key = {
+        "/": "'",
+        "'": "/"
+    }
+    let splitStr = string.split("");
+    let newStr = []
+    for ( let i = 0; i < splitStr.length; i++) {
+        if (key[splitStr[i]]) {
+            newStr.push(key[splitStr[i]])
+        } else {
+            newStr.push(splitStr[i])
+        }
+    }
+    return newStr.join("");
+}
+
 renderList = data => {
     let letter = data[0].name.slice(0, 1).toUpperCase();
     let titleFound;
@@ -47,8 +66,8 @@ renderList = data => {
         let target = document.querySelector(`div[data-id='${letter}']`)
         if (letter === target.dataset.id) {
             let termHtml = `
-            <div data-term="${term.name}" class="flex space-bet">
-                <a class="list" href="http://localhost:3000/list/${term.term_id}">${term.name}</a><span>${term.username}</span>
+            <div data-term="${format(term.name)}" class="flex space-bet">
+                <a class="list" href="http://localhost:3000/list/${term.term_id}">${format(term.name)}</a><span>${term.username}</span>
             </div>
             `
             target.parentElement.innerHTML += termHtml;

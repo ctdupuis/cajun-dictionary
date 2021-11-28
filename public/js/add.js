@@ -25,14 +25,33 @@ logout = () => {
     .then(res => window.location.replace("/"))
 }
 
+format = string => {
+    // formats strings to avoid throwing errors for words using contractions
+    // will be called on pushing up and receiving back data
+    let key = {
+        "/": "'",
+        "'": "/"
+    }
+    let splitStr = string.split("");
+    let newStr = []
+    for ( let i = 0; i < splitStr.length; i++) {
+        if (key[splitStr[i]]) {
+            newStr.push(key[splitStr[i]])
+        } else {
+            newStr.push(splitStr[i])
+        }
+    }
+    return newStr.join("");
+}
+
 handleSubmit = e => {
     e.preventDefault();
     
     let obj = {
-        name: term.value,
-        pronunciation: pronunciation.value,
-        definition: definition.value,
-        useCase: useCase.value,
+        name: format(term.value),
+        pronunciation: format(pronunciation.value),
+        definition: format(definition.value),
+        useCase: format(useCase.value),
         
     }
     axios.post('http://localhost:3000/add', obj)
