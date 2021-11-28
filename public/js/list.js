@@ -1,3 +1,6 @@
+const container = document.getElementById('word-container');
+
+
 checkSession = async () => {
     const response = await axios.get('http://localhost:3000/auth', 
     { withCredentials: true });
@@ -19,7 +22,21 @@ getList = async () => {
 }
 
 renderList = data => {
-    debugger
+    let letter = data[0].name.slice(0, 1).toUpperCase();
+    console.log(letter)
+    data.forEach(term => {
+        if (!term.name.slice(0, 1).toUpperCase() === letter) {
+            letter = term.name.slice(0, 1)
+        }
+        const title = `
+        <div class="word-wrapper">
+            <div data-id="${letter}" class="list-title flex space-bet">
+                <h3>${letter}</h3><h3>Submitted by</h3>
+            </div>
+        </div>
+        `
+        container.innerHTML += title;
+    })
 }
 
 document.addEventListener('DOMContentLoaded', checkSession);
