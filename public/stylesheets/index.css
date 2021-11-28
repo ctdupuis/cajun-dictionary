@@ -218,3 +218,8 @@ aside {
     font-size: larger;
     color: var(--red2);
 }
+
+/* #results {
+    min-width: 50px;
+    min-height: 50px;
+} */
