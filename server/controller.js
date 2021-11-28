@@ -86,7 +86,7 @@ module.exports = {
     getList: (req, res) => {
         sequelize.query(
             `
-                select t.term_id, t.name, u.username 
+                select t.term_id, t.name, t.pronunciation, t.definition, use_case, u.username 
                 from terms t
                 join users u
                 on t.user_id = u.user_id
