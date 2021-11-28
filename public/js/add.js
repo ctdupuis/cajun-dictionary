@@ -35,9 +35,8 @@ handleSubmit = e => {
         useCase: useCase.value,
         
     }
-    // axios.post('http://localhost:3000/add', obj)
-    // .then(res => console.log(res.data))
-    console.log(obj)
+    axios.post('http://localhost:3000/add', obj)
+    .then(res => console.log(res.data))
 
     form.reset();
 }
