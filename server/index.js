@@ -40,7 +40,8 @@ const {
     listPage,
     showWord,
     addTerm,
-    getList
+    getList,
+    seed
 } = require("./controller.js")
 
 // Production links for serving static files
@@ -55,7 +56,7 @@ app.get("/js", (req, res) => {
 app.use(express.static("public"));
 // Production links for serving static files
 
-
+app.get("/seed", seed);
 
 app.get("/", home);
 app.get("/auth", auth);

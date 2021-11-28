@@ -6,6 +6,7 @@ require('dotenv').config();
 const { DATABASE_URL } = process.env;
 const Sequelize = require('sequelize');
 const uniqid = require('uniqid');
+const { ESRCH } = require("constants");
 
 const sequelize = new Sequelize(DATABASE_URL, {
     dialect: 'postgres', 
@@ -101,5 +102,29 @@ module.exports = {
         res.status(200).sendFile(path.join(__dirname, "../public/show.html"))
         // grab word ID from params
         // query database, send response to show for population
+    },
+    seed: (req, res) => {
+        sequelize.query(
+            `
+                drop table if exists terms;
+
+                create table terms (
+                    id serial primary key,
+                    name varchar,
+                    pronunciation varchar,
+                    definition text,
+                    use_case text,
+                    user_id varchar references users(user_id)
+                );
+
+                insert into terms (name, pronunciation, definition, use_case, user_id)
+                values 
+                ('meenoo', 'MEEnoo', 'A cat.', '"Cha meenoo, come here and get you a treat"', 'enw183x2okwe3onlc'),
+                ('Mais Yeah', 'MAY yeh', 'Showing affirmation to a question that the person answering believes is an obvious answer', '"Hey man, did you see the Saints play yesterday?"\n"Mais Yeah, I never miss a game"', 'enw183x2okwe3onlc')
+                ;
+            `
+        )
+        .then(dbRes => res.status(200).send('DB seeded'))
+        .catch(err => console.log(err));
     }
 }
