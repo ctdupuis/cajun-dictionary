@@ -89,7 +89,8 @@ module.exports = {
                 select t.term_id, t.name, u.username 
                 from terms t
                 join users u
-                on t.user_id = u.user_id;
+                on t.user_id = u.user_id
+                order by name asc;
             `
         )
         .then(dbRes => res.status(200).send(dbRes[0]));
@@ -109,7 +110,7 @@ module.exports = {
                 drop table if exists terms;
 
                 create table terms (
-                    id serial primary key,
+                    term_id serial primary key,
                     name varchar,
                     pronunciation varchar,
                     definition text,
@@ -120,7 +121,8 @@ module.exports = {
                 insert into terms (name, pronunciation, definition, use_case, user_id)
                 values 
                 ('meenoo', 'MEEnoo', 'A cat.', '"Cha meenoo, come here and get you a treat"', 'enw183x2okwe3onlc'),
-                ('Mais Yeah', 'MAY yeh', 'Showing affirmation to a question that the person answering believes is an obvious answer', '"Hey man, did you see the Saints play yesterday?"\n"Mais Yeah, I never miss a game"', 'enw183x2okwe3onlc')
+                ('Mais Yeah', 'MAY yeh', 'Showing affirmation to a question that the person answering believes is an obvious answer', '"Hey man, did you see the Saints play yesterday?"\n"Mais Yeah, I never miss a game"', 'enw183x2okwe3onlc'),
+                ('boudin', 'BOOdah', 'Sausage casing stuffed with rice, meat and vegetables', '"Nothing beats a hot plate of boudin after a long day"', 'enw183x2okwe3onlc')
                 ;
             `
         )
