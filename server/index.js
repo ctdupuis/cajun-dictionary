@@ -36,12 +36,12 @@ const {
     logout,
     about,
     addPage,
-    list,
     listPage,
     showTerm,
     addTerm,
     getList,
-    seed
+    seed,
+    recentTerm
 } = require("./controller.js")
 
 // Production links for serving static files
@@ -57,6 +57,7 @@ app.use(express.static("public"));
 // Production links for serving static files
 
 app.get("/seed", seed);
+app.get("/recent", recentTerm);
 
 app.get("/", home);
 app.get("/auth", auth);

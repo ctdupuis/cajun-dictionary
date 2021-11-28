@@ -104,6 +104,18 @@ module.exports = {
         // grab word ID from params
         // query database, send response to show for population
     },
+    recentTerm: (req, res) => {
+        sequelize.query(
+            `
+                select t.term_id, t.name, t.pronunciation, t.definition, use_case, u.username 
+                from terms t
+                join users u
+                on t.user_id = u.user_id
+                order by term_id desc limit 1;
+            `
+        )
+        .then(dbRes => res.status(200).send(dbRes[0]));
+    },
     seed: (req, res) => {
         sequelize.query(
             `
@@ -127,7 +139,7 @@ module.exports = {
 
                 ('boudin', 'BOOdah', 'Sausage casing stuffed with rice, meat and vegetables', '"Nothing beats a hot plate of boudin after a long day."', 'enw183x2okwe3onlc'),
 
-                ('ahnvee', 'AHNvee', 'Hunger, craving', '"I got strong ahnvee for some étouffée right about now."', 'enw183x2okwe3onlc'),
+                ('ahnvee', 'AHNvee', 'Hunger, craving', '"I got me a strong ahnvee for some étouffée right about now."', 'enw183x2okwe3onlc'),
 
                 ('boude', 'booDAY', 'To whine our pout', '"I don\t wanna hear you boude, do your homework and do it right."', 'enw183x2okwe3onlc'),
 

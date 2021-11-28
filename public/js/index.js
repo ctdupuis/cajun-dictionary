@@ -1,9 +1,11 @@
 let termSection = document.getElementById("word_of_day");
+let recentSection = document.getElementById("most_recent");
 
 init = () => {
     seedDB();
     handleDate();
     handleTermoOfDay('init');
+    handleMostRecent();
 }
 
 handleDate = () => {
@@ -51,6 +53,44 @@ handleTermoOfDay = method => {
         if (method === 'new') {
             termSection.innerHTML = html;
         }
+    })
+}
+
+handleMostRecent = () => {
+    axios.get('http://localhost:3000/recent')
+    .then(res => {
+        let term = res.data[0];
+        let html = `
+        <div class="title">
+            <h3>Most Recent Addition</h3>
+        </div>
+
+        <div class="container bg-white">
+            <h3>${term.name}</h3>
+            <span class="pronunciation">${term.pronunciation}</span>
+
+            <div class="definition">
+                <p>
+                <strong>Definition:</strong>
+
+                <blockquote>
+                    ${term.definition}
+                </blockquote>
+                </p>
+            </div>
+
+            <div class="use-case">
+                <p>
+                    <strong>Use Case:</strong>
+
+                    <blockquote>
+                        ${term.use_case}
+                    </blockquote>
+                </p>
+            </div>
+        </div>
+        `
+        recentSection.innerHTML = html;
     })
 }
 
