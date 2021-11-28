@@ -9,7 +9,7 @@ checkSession = async () => {
     { withCredentials: true });
     const data = response.data;
     if (!data.username) {
-        window.location.replace("/")
+        window.location.replace("/");
     } else {
         let { id, username } = data;
         let html = `
@@ -35,7 +35,6 @@ handleSubmit = e => {
         useCase: useCase.value,
         
     }
-    console.log(obj)
     axios.post('http://localhost:3000/add', obj)
     .then(res => console.log(res.data))
 

@@ -2,7 +2,6 @@ checkSession = async () => {
     const response = await axios.get('http://localhost:3000/auth', 
     { withCredentials: true });
     const data = response.data;
-    console.log(data)
     if (data.username) {
         let { id, username } = data;
         let html = `

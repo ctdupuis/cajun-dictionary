@@ -71,7 +71,6 @@ module.exports = {
     about: (req, res) => res.sendFile(path.join(__dirname, "../public/about.html")),
     addPage: (req, res) => res.sendFile(path.join(__dirname, "../public/add.html")),
     addTerm: (req, res) => {
-        console.log("Sesh obj: ", req.session)
         let { name, pronunciation, definition, useCase } = req.body;
         sequelize.query(
             `
@@ -83,14 +82,24 @@ module.exports = {
         .catch(err => console.log("Error:", err))
     },
     listPage: (req, res) => res.sendFile(path.join(__dirname, "../public/list.html")),
+    getList: (req, res) => {
+        sequelize.query(
+            `
+                select t.term_id, t.name, u.username 
+                from terms t
+                join users u
+                on t.user_id = u.user_id;
+            `
+        )
+        .then(dbRes => res.status(200).send(dbRes[0]));
+        // SQL query for getting term information:
+        // select t.term_id, t.name, t.pronunciation, t.definition, t.use_case, u.username from terms t 
+        // join users u on 
+        // t.user_id = u.user_id;
+    },
     showWord: (req, res) => {
         res.status(200).sendFile(path.join(__dirname, "../public/show.html"))
         // grab word ID from params
         // query database, send response to show for population
     }
 }
-
-// SQL query for getting term information:
-// select t.term_id, t.name, t.pronunciation, t.definition, t.use_case, u.username from terms t 
-// join users u on 
-// t.user_id = u.user_id;

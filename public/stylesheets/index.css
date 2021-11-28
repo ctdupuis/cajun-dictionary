@@ -195,6 +195,10 @@ aside {
 
 /* LIST PAGE */
 
+.word-wrapper {
+    margin-top: 1.5%;
+}
+
 .list {
     text-decoration: none;
     color: var(--red1);

@@ -39,7 +39,8 @@ const {
     list,
     listPage,
     showWord,
-    addTerm
+    addTerm,
+    getList
 } = require("./controller.js")
 
 // Production links for serving static files
@@ -52,7 +53,7 @@ app.get("/js", (req, res) => {
 });
 
 app.use(express.static("public"));
-// Production links fo serving static files
+// Production links for serving static files
 
 
 
@@ -73,7 +74,8 @@ app.get("/add", addPage);
 app.post("/add", addTerm);
 
 app.get("/list", listPage);
-app.get("/word/:id", showWord);
+app.get("/list/all", getList);
+app.get("/list/:id", showWord);
 
 
 const PORT = process.env.PORT || 3000

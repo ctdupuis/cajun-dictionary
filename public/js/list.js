@@ -12,5 +12,15 @@ checkSession = async () => {
     } 
 }
 
+getList = async () => {
+    const response = await axios.get('http://localhost:3000/list/all')
+    const data = response.data;
+    renderList(data);
+}
+
+renderList = data => {
+    debugger
+}
 
 document.addEventListener('DOMContentLoaded', checkSession);
+document.addEventListener('DOMContentLoaded', getList);
