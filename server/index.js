@@ -44,7 +44,8 @@ const {
     recentTerm,
     getTerm,
     addLike,
-    checkLikes
+    checkLikes,
+    removeLike
 } = require("./controller.js")
 
 // Production links for serving static files
@@ -88,6 +89,7 @@ app.get("/term/:id", getTerm);
 app.put("/term/:id", addLike);
 
 app.get("/likes/:term_id", checkLikes);
+app.delete("/likes/:term_id", removeLike);
 
 const PORT = process.env.PORT || 3000
 

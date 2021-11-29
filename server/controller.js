@@ -207,6 +207,18 @@ module.exports = {
         .then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => res.status(404).send("Error liking term"));
     },
+    removeLike: (req, res) => {
+        const { user_id } = req.session.user;
+        const termId = req.params.term_id;
+        console.log(user_id, termId)
+        sequelize.query(
+            `
+                delete from likes where user_id='${user_id}' and term_id='${termId}';
+            `
+        )
+        .then(dbRes => res.status(200).send(dbRes[0]))
+        .catch(err => res.status(404).send("Error removing like"));
+    },
     checkLikes: (req, res) => {
         if (req.session.user) {
             let userId = req.session.user.user_id;

@@ -50,13 +50,18 @@ updateBtn = () => {
     axios.get(`http://localhost:3000/likes/${wordId}`)
     .then(res => {
         if (res.data.length === 0) {
+            likeBtn.innerText = "Like";
+            likeBtn.removeEventListener('click', unlike);
             likeBtn.addEventListener('click', addLike);
         } else {
             likeBtn.innerText = "Unlike";
+            likeBtn.removeEventListener('click', addLike);
+            likeBtn.addEventListener('click', unlike);
         }
     })
 
 }
+
 
 addLike = event => {
     let id = event.target.dataset.termId;
@@ -64,7 +69,16 @@ addLike = event => {
     axios.put(`http://localhost:3000/term/${id}`)
     .then(res => {
         updateBtn();
-        updateCount()
+        updateCount();
+    })
+}
+
+unlike = event => {
+    let id = event.target.dataset.termId;
+    axios.delete(`http://localhost:3000/likes/${id}`)
+    .then(res => {
+        updateBtn();
+        updateCount();
     })
 }
 
