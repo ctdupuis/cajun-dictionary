@@ -94,10 +94,6 @@ module.exports = {
             `
         )
         .then(dbRes => res.status(200).send(dbRes[0]));
-        // SQL query for getting term information:
-        // select t.term_id, t.name, t.pronunciation, t.definition, t.use_case, u.username from terms t 
-        // join users u on 
-        // t.user_id = u.user_id;
     },
     showTerm: (req, res) => {
         res.status(200).sendFile(path.join(__dirname, "../public/show.html"))

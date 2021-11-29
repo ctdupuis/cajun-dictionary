@@ -56,6 +56,8 @@ app.get("/js", (req, res) => {
 app.use(express.static("public"));
 // Production links for serving static files
 
+
+
 app.get("/seed", seed);
 app.get("/recent", recentTerm);
 
