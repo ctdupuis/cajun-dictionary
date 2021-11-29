@@ -199,7 +199,7 @@ aside {
     margin-top: 1.5%;
 }
 
-.list {
+.list, .search-list {
     text-decoration: none;
     color: var(--red1);
     display: block;

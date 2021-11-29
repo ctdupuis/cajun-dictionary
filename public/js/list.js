@@ -77,25 +77,30 @@ renderList = data => {
 
 clearChildren = nodeList => {
     while (nodeList.length > 0) {
-        debugger
         nodeList[0].remove();
     }
 }
 
 handleSearch =  async event => {
-    let resultsDiv = document.getElementById('results') || document.createElement('div')
-    resultsDiv.id = 'results'
-    container.prepend(resultsDiv)
+    let resultsDiv = document.getElementById('results') || document.createElement('div');
+    resultsDiv.id = 'results';
+    container.prepend(resultsDiv);
     let searchTerm = event.target.value;
+
+    // prevent event from searching based on an empty string
     if (searchTerm !== '') {
+        // grab terms from the page
         let terms = Array.from(document.getElementsByClassName('list')).filter(el => el.textContent.match(searchTerm));
+
+        // checks if terms are rendered and removes them if they are
         if (resultsDiv.childElementCount > 0) {
             await clearChildren(resultsDiv.children);
         }
+        
         terms.forEach(term => {
             let a = document.createElement('a');
             a.textContent = term.textContent;
-            a.classList = "list";
+            a.classList = "search-list";
             a.href = term.href;
             resultsDiv.appendChild(a);
         })
