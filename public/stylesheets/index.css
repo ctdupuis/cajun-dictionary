@@ -56,6 +56,7 @@ section {
 
 
 /* NAV */
+
 nav {
     display: flex;
     justify-content: center;
@@ -205,7 +206,7 @@ aside {
     display: block;
 }
 
-.list:hover {
+.list:hover, .search-list:hover {
     text-decoration: underline;
 }
 
@@ -219,7 +220,8 @@ aside {
     color: var(--red2);
 }
 
-/* #results {
+#results {
     min-width: 50px;
     min-height: 50px;
-} */
+    margin-bottom: 1%;
+}

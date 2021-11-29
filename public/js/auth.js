@@ -1,3 +1,5 @@
+const addTab = document.getElementById('add-tab');
+
 checkSession = async () => {
     const response = await axios.get('http://localhost:3000/auth', 
     { withCredentials: true });
@@ -8,6 +10,7 @@ checkSession = async () => {
         <span class="username">Welcome, ${username}</span>
         <button onclick="logout()" id="logout">Log Out</button>
         `
+        addTab.style.display = "";
         document.querySelector('.session-nav').innerHTML = html;
     } 
 }

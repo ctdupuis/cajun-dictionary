@@ -77,8 +77,8 @@ app.post("/add", addTerm);
 
 app.get("/list", listPage);
 app.get("/list/all", getList);
-app.get("/list/:id", showTerm);
 
+app.get("/list/:id", showTerm);
 
 const PORT = process.env.PORT || 3000
 
