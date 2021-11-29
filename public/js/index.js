@@ -104,9 +104,13 @@ interval = () => {
     handleTermoOfDay('new');
 }
 
-seedDB = () => {
-    axios.get('http://localhost:3000/seed')
-    .then(res => console.log(res.data));
+seedDB = async () => {
+    const response = await axios.get('http://localhost:3000/list/all')
+    const data = response.data
+    if (data.length === 0) {
+        axios.get('http://localhost:3000/seed')
+        .then(res => console.log(res.data));
+    }
 }
 
 document.addEventListener('DOMContentLoaded', init);
