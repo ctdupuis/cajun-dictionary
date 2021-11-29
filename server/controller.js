@@ -136,7 +136,6 @@ module.exports = {
     seed: (req, res) => {
         sequelize.query(
             `
-                drop table if exists likes;
                 drop table if exists terms;
                 
                 create table terms (
@@ -148,7 +147,7 @@ module.exports = {
                     user_id varchar references users(user_id)
                 );
 
-                create table likes (
+                create table if not exists likes (
                     like_id serial primary key,
                     user_id varchar references users(user_id),
                     term_id integer references terms(term_id)
@@ -186,10 +185,6 @@ module.exports = {
                 ('parran', 'PARrah', 'Term of endearment used to describe one/s godfather', '"Hey Pa, Parran offered to take me fishing! Can I please go?"', 'enw183x2okwe3onlc')
                 ;
 
-                insert into likes (user_id, term_id)
-                values ('enw183x2okwe3onlc', 14),
-                ('enw183y9vkwe4j1ii', 14)
-                ;
             `
         )
         .then(dbRes => res.status(200).send('DB seeded'))
