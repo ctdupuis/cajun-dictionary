@@ -179,11 +179,11 @@ module.exports = {
 
                 ('hont', 'HAWN', 'A feeling of embarassment', '"I ripped my pants at the family reunion. Imagine the hont I felt after that."', 'enw183x2okwe3onlc'),
 
-                ('Nanan', 'nahNAHN', 'Term of endearment used to describe one\s godmother, synonymous with "Nanny"', '"Your Pa and I are going Zydeco dancing tonight, Nanan is gonna be watching you for til we get back"', 'enw183x2okwe3onlc'),
+                ('nanan', 'nahNAHN', 'Term of endearment used to describe one\s godmother, synonymous with "Nanny"', '"Your Pa and I are going Zydeco dancing tonight, Nanan is gonna be watching you for til we get back"', 'enw183x2okwe3onlc'),
 
                 ('étoufée', 'ayTOOfay', 'French-creole dish that is typically served with shellfish over rice', '"Make sure you\re home in time for dinner, yer mama\s makin\ crawfish étoufée tonight."', 'enw183x2okwe3onlc'),
 
-                ('Parran', 'PARrah', 'Term of endearment used to describe one\s godfather', '"Hey Pa, Parran offered to take me fishing! Can I please go?"', 'enw183x2okwe3onlc')
+                ('parran', 'PARrah', 'Term of endearment used to describe one\s godfather', '"Hey Pa, Parran offered to take me fishing! Can I please go?"', 'enw183x2okwe3onlc')
                 ;
 
                 insert into likes (user_id, term_id)

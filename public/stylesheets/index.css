@@ -253,3 +253,14 @@ aside {
 .show {
     font-size: x-large;
 }
+
+.disabled {
+    background-color: grey;
+    cursor: not-allowed;
+    border: 1px solid grey;
+}
+
+.disabled:hover {
+    background-color: gray;
+    cursor: not-allowed;
+}

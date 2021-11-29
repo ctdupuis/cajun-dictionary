@@ -2,14 +2,56 @@ let path = document.location.pathname.split("/");
 let idx = path.length - 1;
 let wordId = +path[idx];
 let container = document.getElementById('word-container');
+const addTab = document.getElementById('add-tab');
 
-updateTitle = termName => {
-    document.title = `${termName} | Cajun Dictionary`
+
+let loggedIn = false;
+
+checkSession = async () => {
+    const response = await axios.get('http://localhost:3000/auth', 
+    { withCredentials: true });
+    const data = response.data;
+    fetchTerm();
+    if (data.username) {
+        let { id, username } = data;
+        let html = `
+        <span class="username">Welcome, ${username}</span>
+        <button onclick="logout()" id="logout">Log Out</button>
+        `
+        addTab.style.display = "";
+        document.querySelector('.session-nav').innerHTML = html;
+        loggedIn = true;
+    } 
+}
+
+logout = () => {
+    axios.get('http://localhost:3000/logout', { withCredentials: true })
+    .then(res => window.location.replace("/"))
+}
+
+handleLikeBtn = () => {
+    const likeBtn = document.getElementById('like');
+    if (!loggedIn) {
+        likeBtn.classList.add("disabled");
+        let html = `
+        <div style="text-align: center;">
+            <span><a class="list" href="http://localhost:3000/login">Log In</a> to like a term</span>
+        </div>
+        `
+        container.innerHTML += html;
+    }
+}
+
+updateTitle = term => {
+    document.title = `${term.name} | Cajun Dictionary`
 }
 
 fetchTerm = () => {
     axios.get(`http://localhost:3000/term/${wordId}`)
-    .then(res => renderTerm(res.data))
+    .then(res => {
+        renderTerm(res.data);
+        updateTitle(res.data);
+    })
 }
 
 renderTerm = term => {
@@ -22,32 +64,34 @@ renderTerm = term => {
         </div>
         <span>Submitted by ${term.username}</span>
     </div>
-
+    
     <div class="definition show">
         <p>
             <strong>Definition:</strong>
-
+            
             <blockquote>
                 ${term.definition}
             </blockquote>
         </p>
     </div>
-
+    
     <div class="use-case show">
         <p>
             <strong>Use Case:</strong>
-
+            
             <blockquote>
                 ${term.use_case}
             </blockquote>
         </p>
     </div>
-
-    <div class="flex likes-container center-just">
-        <div class="num">${term.likes}</div><div onclick="addLike(${term.term_id})" class="like">Like</div>
+    
+    <div id="likes-container" class="flex center-just">
+        <div class="num">${term.likes}</div><div onclick="addLike(${term.term_id})" id="like" class="like">Like</div>
     </div>
     `
     container.innerHTML += html;
+
+    handleLikeBtn();
 }
 
 addLike = id => {
@@ -75,4 +119,5 @@ format = string => {
     return newStr.join("");
 }
 
-document.addEventListener('DOMContentLoaded', fetchTerm);
+
+document.addEventListener('DOMContentLoaded', checkSession);
