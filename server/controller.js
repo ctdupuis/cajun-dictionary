@@ -197,6 +197,14 @@ module.exports = {
     },
     addLike: (req, res) => {
         const { user_id } = req.session.user;
-        console.log(user_id)
+        const termId = req.params.id;
+        sequelize.query(
+            `
+                insert into likes (user_id, term_id)
+                values ('${user_id}', '${termId}');
+            `
+        )
+        .then(dbRes => res.status(200).send(dbRes[0]))
+        .catch(err => res.status(404).send("Error liking term"));
     }
 }

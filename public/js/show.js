@@ -39,7 +39,16 @@ handleLikeBtn = () => {
         </div>
         `
         container.innerHTML += html;
+    } else {
+        likeBtn.addEventListener('click', addLike);
     }
+}
+
+addLike = event => {
+    let id = event.target.dataset.termId;
+    // fetch the server to add a new like
+    axios.put(`http://localhost:3000/term/${id}`)
+    .then(res => console.log(res.data))
 }
 
 updateTitle = term => {
@@ -86,18 +95,12 @@ renderTerm = term => {
     </div>
     
     <div id="likes-container" class="flex center-just">
-        <div class="num">${term.likes}</div><div onclick="addLike(${term.term_id})" id="like" class="like">Like</div>
+        <div class="num">${term.likes}</div><div data-term-id="${term.term_id}" id="like" class="like">Like</div>
     </div>
     `
     container.innerHTML += html;
 
     handleLikeBtn();
-}
-
-addLike = id => {
-    // fetch the server to add a new like
-    axios.put(`http://localhost:3000/term/${id}`)
-    .then(res => console.log(res.data))
 }
 
 format = string => {
