@@ -1,12 +1,13 @@
+/* ROOT VARIABLES */
 :root {
     --red1: #800909;
     --red2: #661111;
 }
 
-
+/* IMPORTS */
 @import url('https://css.gg/eye-alt.css');
 
-
+/* PAGE LAYOUT */
 * {
     margin: 0
 }
@@ -23,6 +24,10 @@ body {
 
 .flex {
     display: flex;
+}
+
+.col {
+    flex-direction: column;
 }
 
 .space-bet {
@@ -47,13 +52,14 @@ body {
 }
 
 
+/* PAGE CONTENT */
 section {
     box-shadow: 5px 5px 10px black;
     margin: 1%;
 }
 
 
-
+/* NAV */
 nav {
     display: flex;
     justify-content: center;
@@ -107,7 +113,7 @@ nav a:hover, .session-nav a:hover, aside a:hover {
 }
 
 
-
+/*  BACKGROUNDS */
 .bg-red1 {
     background-color: var(--red1);
 }
@@ -125,7 +131,7 @@ nav a:hover, .session-nav a:hover, aside a:hover {
     color: var(--red1);
 }
 
-
+/* HOME PAGE */
 .definition, .use-case {
     margin: 2%;
 }
@@ -136,7 +142,7 @@ nav a:hover, .session-nav a:hover, aside a:hover {
     font-size: larger;
 }
 
-
+/* FORMS */
 
 #register, #add-term {
     text-align: center;
@@ -195,7 +201,7 @@ aside {
     text-align: center;
 }
 
-
+/* LIST PAGE */
 
 .word-wrapper {
     margin-top: 1.5%;
@@ -225,4 +231,25 @@ aside {
     min-width: 50px;
     min-height: 50px;
     margin-bottom: 1%;
+}
+
+/* SHOW PAGE */
+
+.num, .like {
+    border: 1px solid var(--red1);
+    padding: 1%;
+}
+
+.like {
+    background-color: var(--red1);
+    color: whitesmoke;
+}
+
+.like:hover {
+    background-color: var(--red2);
+    cursor: pointer;
+}
+
+.show {
+    font-size: x-large;
 }

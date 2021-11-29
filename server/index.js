@@ -41,7 +41,9 @@ const {
     addTerm,
     getList,
     seed,
-    recentTerm
+    recentTerm,
+    getTerm,
+    addLike
 } = require("./controller.js")
 
 // Production links for serving static files
@@ -81,6 +83,8 @@ app.get("/list", listPage);
 app.get("/list/all", getList);
 
 app.get("/list/:id", showTerm);
+app.get("/term/:id", getTerm);
+app.put("/term/:id", addLike);
 
 const PORT = process.env.PORT || 3000
 

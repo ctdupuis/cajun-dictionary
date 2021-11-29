@@ -100,6 +100,27 @@ module.exports = {
         // grab word ID from params
         // query database, send response to show for population
     },
+    getTerm: (req, res) => {
+        let { id } = req.params;
+        sequelize.query(
+            `
+                select t.term_id, t.name, t.pronunciation, t.definition, t.use_case, u.username, u.user_id 
+                from terms t 
+                join users u 
+                on t.user_id = u.user_id
+                where t.term_id=${id};
+
+                select count(like_id) as likes from likes where term_id=${id};
+            `
+        )
+        .then(dbRes => {
+            let term = dbRes[0][0];
+            let likes = dbRes[0][1];
+            let termObj = Object.assign({}, term, likes);
+            res.status(200).send(termObj);
+        })
+        .catch(err => console.log(err))
+    },
     recentTerm: (req, res) => {
         sequelize.query(
             `
@@ -115,8 +136,9 @@ module.exports = {
     seed: (req, res) => {
         sequelize.query(
             `
+                drop table if exists likes;
                 drop table if exists terms;
-
+                
                 create table terms (
                     term_id serial primary key,
                     name varchar,
@@ -124,6 +146,12 @@ module.exports = {
                     definition text,
                     use_case text,
                     user_id varchar references users(user_id)
+                );
+
+                create table likes (
+                    like_id serial primary key,
+                    user_id varchar references users(user_id),
+                    term_id integer references terms(term_id)
                 );
 
                 insert into terms (name, pronunciation, definition, use_case, user_id)
@@ -157,9 +185,18 @@ module.exports = {
 
                 ('Parran', 'PARrah', 'Term of endearment used to describe one\s godfather', '"Hey Pa, Parran offered to take me fishing! Can I please go?"', 'enw183x2okwe3onlc')
                 ;
+
+                insert into likes (user_id, term_id)
+                values ('enw183x2okwe3onlc', 14),
+                ('enw183y9vkwe4j1ii', 14)
+                ;
             `
         )
         .then(dbRes => res.status(200).send('DB seeded'))
         .catch(err => console.log(err));
+    },
+    addLike: (req, res) => {
+        const { user_id } = req.session.user;
+        console.log(user_id)
     }
 }
