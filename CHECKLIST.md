@@ -54,7 +54,7 @@ The required items are starred.
 
 ### Database
 
-[] project includes a seed file or function
+[X] project includes a seed file or function
 
 [X] app uses 1 table
 

@@ -1,6 +1,6 @@
 const container = document.getElementById('word-container');
 const search = document.getElementById('search');
-const results = document.getElementById('results');
+// const results = document.getElementById('results');
 
 
 checkSession = async () => {
@@ -75,17 +75,32 @@ renderList = data => {
     })
 }
 
-// handleSearch = event => {
-//     let searchTerm = event.target.value;
-//     let terms = Array.from(document.getElementsByClassName('list')).filter(el => el.textContent.match(searchTerm));
-//     terms.forEach(term => {
-//         let a = document.createElement('a');
-//         a.textContent = term.textContent;
-//         a.classList = "list";
-//         a.href = term.href;
-//         results.appendChild(a);
-//     })
-// }
+clearChildren = nodeList => {
+    while (nodeList.length > 0) {
+        debugger
+        nodeList[0].remove();
+    }
+}
+
+handleSearch =  async event => {
+    let resultsDiv = document.getElementById('results') || document.createElement('div')
+    resultsDiv.id = 'results'
+    container.prepend(resultsDiv)
+    let searchTerm = event.target.value;
+    if (searchTerm !== '') {
+        let terms = Array.from(document.getElementsByClassName('list')).filter(el => el.textContent.match(searchTerm));
+        if (resultsDiv.childElementCount > 0) {
+            await clearChildren(resultsDiv.children);
+        }
+        terms.forEach(term => {
+            let a = document.createElement('a');
+            a.textContent = term.textContent;
+            a.classList = "list";
+            a.href = term.href;
+            resultsDiv.appendChild(a);
+        })
+    }
+}
 
 document.addEventListener('DOMContentLoaded', checkSession);
 document.addEventListener('DOMContentLoaded', getList);
