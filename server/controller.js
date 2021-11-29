@@ -206,5 +206,16 @@ module.exports = {
         )
         .then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => res.status(404).send("Error liking term"));
+    },
+    checkLikes: (req, res) => {
+        if (req.session.user) {
+            let userId = req.session.user.user_id;
+            let termId = req.params.term_id
+
+            sequelize.query(
+                `select * from likes where term_id='${termId}' and user_id='${userId}';`
+            )
+            .then(dbRes => res.status(200).send(dbRes[0]))
+        }
     }
 }

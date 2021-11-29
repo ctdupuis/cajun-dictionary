@@ -42,13 +42,38 @@ handleLikeBtn = () => {
     } else {
         likeBtn.addEventListener('click', addLike);
     }
+    updateBtn();
+}
+
+updateBtn = () => {
+    const likeBtn = document.getElementById('like');
+    axios.get(`http://localhost:3000/likes/${wordId}`)
+    .then(res => {
+        if (res.data.length === 0) {
+            likeBtn.addEventListener('click', addLike);
+        } else {
+            likeBtn.innerText = "Unlike";
+        }
+    })
+
 }
 
 addLike = event => {
     let id = event.target.dataset.termId;
     // fetch the server to add a new like
     axios.put(`http://localhost:3000/term/${id}`)
-    .then(res => console.log(res.data))
+    .then(res => {
+        updateBtn();
+        updateCount()
+    })
+}
+
+updateCount = () => {
+    axios.get(`http://localhost:3000/term/${wordId}`)
+    .then(res => {
+        let likecount = document.getElementById('num');
+        likecount.innerText = res.data.likes;
+    })
 }
 
 updateTitle = term => {
@@ -95,7 +120,7 @@ renderTerm = term => {
     </div>
     
     <div id="likes-container" class="flex center-just">
-        <div class="num">${term.likes}</div><div data-term-id="${term.term_id}" id="like" class="like">Like</div>
+        <div id="num" class="num">${term.likes}</div><div data-term-id="${term.term_id}" id="like" class="like">Like</div>
     </div>
     `
     container.innerHTML += html;
