@@ -118,7 +118,7 @@ renderTerm = term => {
             <strong>Definition:</strong>
             
             <blockquote>
-                ${term.definition}
+                ${format(term.definition)}
             </blockquote>
         </p>
     </div>
@@ -128,7 +128,7 @@ renderTerm = term => {
             <strong>Use Case:</strong>
             
             <blockquote>
-                ${term.use_case}
+                ${format(term.use_case)}
             </blockquote>
         </p>
     </div>

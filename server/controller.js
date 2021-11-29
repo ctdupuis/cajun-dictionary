@@ -165,7 +165,7 @@ module.exports = {
 
                 ('ahnvee', 'AHNvee', 'Hunger, craving', '"I got me a strong ahnvee for some étouffée right about now."', 'enw183x2okwe3onlc'),
 
-                ('boude', 'booDAY', 'To whine our pout', '"I don\t wanna hear you boude, do your homework and do it right."', 'enw183x2okwe3onlc'),
+                ('boude', 'booDAY', 'To whine our pout', '"I don/t wanna hear you boude, do your homework and do it right."', 'enw183x2okwe3onlc'),
 
                 ('domion', 'dohMEEawn', 'A peeping tom', '"I hear Cherie say that Bubba down the road is a domion. She caught him staring outside her window the other night"', 'enw183x2okwe3onlc'),
 
@@ -173,17 +173,17 @@ module.exports = {
 
                 ('drawz', 'DRAWZ', 'Underwear', '"Boy, pick ya damn drawz up off the floor! I been telling you this for a week now."', 'enw183x2okwe3onlc'),
 
-                ('fais do-do', 'fay DOH-doh', 'Go to sleep', '"Hey, it\s 9pm, that means it\s fais do-do time."', 'enw183x2okwe3onlc'),
+                ('fais do-do', 'fay DOH-doh', 'Go to sleep', '"Hey, it/s 9pm, that means it/s fais do-do time."', 'enw183x2okwe3onlc'),
 
                 ('ga lee', 'GAH lee', 'An expression of surprise or astonishment', '"I went to get me a new mower today but ga lee boy them mowers are expensive."', 'enw183x2okwe3onlc'),
 
                 ('hont', 'HAWN', 'A feeling of embarassment', '"I ripped my pants at the family reunion. Imagine the hont I felt after that."', 'enw183x2okwe3onlc'),
 
-                ('nanan', 'nahNAHN', 'Term of endearment used to describe one\s godmother, synonymous with "Nanny"', '"Your Pa and I are going Zydeco dancing tonight, Nanan is gonna be watching you for til we get back"', 'enw183x2okwe3onlc'),
+                ('nanan', 'nahNAHN', 'Term of endearment used to describe one/s godmother, synonymous with "Nanny"', '"Your Pa and I are going Zydeco dancing tonight, Nanan is gonna be watching you for til we get back"', 'enw183x2okwe3onlc'),
 
-                ('étoufée', 'ayTOOfay', 'French-creole dish that is typically served with shellfish over rice', '"Make sure you\re home in time for dinner, yer mama\s makin\ crawfish étoufée tonight."', 'enw183x2okwe3onlc'),
+                ('étoufée', 'ayTOOfay', 'French-creole dish that is typically served with shellfish over rice', '"Make sure you/re home in time for dinner, yer mama/s makin/ crawfish étoufée tonight."', 'enw183x2okwe3onlc'),
 
-                ('parran', 'PARrah', 'Term of endearment used to describe one\s godfather', '"Hey Pa, Parran offered to take me fishing! Can I please go?"', 'enw183x2okwe3onlc')
+                ('parran', 'PARrah', 'Term of endearment used to describe one/s godfather', '"Hey Pa, Parran offered to take me fishing! Can I please go?"', 'enw183x2okwe3onlc')
                 ;
 
                 insert into likes (user_id, term_id)

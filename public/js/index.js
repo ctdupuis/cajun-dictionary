@@ -27,7 +27,7 @@ handleTermoOfDay = method => {
                 <strong>Definition:</strong>
 
                 <blockquote>
-                    ${term.definition}
+                    ${format(term.definition)}
                 </blockquote>
                 </p>
             </div>
@@ -37,7 +37,7 @@ handleTermoOfDay = method => {
                     <strong>Use Case:</strong>
 
                     <blockquote>
-                        ${term.use_case}
+                        ${format(term.use_case)}
                     </blockquote>
                 </p>
             </div>
@@ -54,6 +54,25 @@ handleTermoOfDay = method => {
             termSection.innerHTML = html;
         }
     })
+}
+
+format = string => {
+    // formats strings to avoid throwing errors for words using contractions
+    // will be called on pushing up and receiving back data
+    let key = {
+        "/": "'",
+        "'": "/"
+    }
+    let splitStr = string.split("");
+    let newStr = []
+    for ( let i = 0; i < splitStr.length; i++) {
+        if (key[splitStr[i]]) {
+            newStr.push(key[splitStr[i]])
+        } else {
+            newStr.push(splitStr[i])
+        }
+    }
+    return newStr.join("");
 }
 
 handleMostRecent = () => {
@@ -74,7 +93,7 @@ handleMostRecent = () => {
                 <strong>Definition:</strong>
 
                 <blockquote>
-                    ${term.definition}
+                    ${format(term.definition)}
                 </blockquote>
                 </p>
             </div>
@@ -84,7 +103,7 @@ handleMostRecent = () => {
                     <strong>Use Case:</strong>
 
                     <blockquote>
-                        ${term.use_case}
+                        ${format(term.use_case)}
                     </blockquote>
                 </p>
             </div>

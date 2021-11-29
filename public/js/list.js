@@ -1,6 +1,6 @@
 const container = document.getElementById('word-container');
 const search = document.getElementById('search');
-// const results = document.getElementById('results');
+const addTab = document.getElementById('add-tab');
 
 
 checkSession = async () => {
@@ -13,6 +13,7 @@ checkSession = async () => {
         <span class="username">Welcome, ${username}</span>
         <button onclick="logout()" id="logout">Log Out</button>
         `
+        addTab.style.display = '';
         document.querySelector('.session-nav').innerHTML = html;
     } 
 }
