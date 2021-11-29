@@ -34,7 +34,7 @@ module.exports = {
             req.session.user = {id: id, username: username}
             res.status(200).send(req.session)
         })
-        .catch(err => console.log("error: ", err))
+        .catch(err => res.status(400).send(err));
     },
     login: (req, res) => res.status(200).sendFile(path.join(__dirname, "../public/login.html")),
     loginUser: (req, res) => {
@@ -56,6 +56,7 @@ module.exports = {
                 res.status(400).send("Invalid username or password");
             }
         })
+        .catch(err => res.status(404).send("That username could not be found"))
     },
     auth: (req, res) => {
         if (req.session.user) {

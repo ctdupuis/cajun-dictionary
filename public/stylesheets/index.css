@@ -56,7 +56,6 @@ section {
 
 
 /* NAV */
-
 nav {
     display: flex;
     justify-content: center;
@@ -192,6 +191,10 @@ aside {
 
 #pro-guide:hover {
     text-decoration: underline;
+}
+
+#error-message {
+    text-align: center;
 }
 
 /* LIST PAGE */

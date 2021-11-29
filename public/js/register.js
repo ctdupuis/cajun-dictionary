@@ -1,11 +1,10 @@
 const devUrl = 'http://localhost:3000'
 
-
-
 const form = document.getElementById('register');
 const username = document.getElementById('username');
 const password = document.getElementById('password');
 const passToggle = document.getElementById('show');
+const error = document.getElementById('error-message');
 
 handleSubmit = e => {
     e.preventDefault();
@@ -20,6 +19,7 @@ handleSubmit = e => {
             window.location.replace("/")
         }
     })
+    .catch(err => error.style.display = '');
 }
 
 togglePassword = e => {

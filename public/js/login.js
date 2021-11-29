@@ -2,6 +2,7 @@ const form = document.getElementById('register');
 const username = document.getElementById('username');
 const password = document.getElementById('password');
 const passToggle = document.getElementById('show');
+const error = document.getElementById('error-message');
 
 
 handleSubmit = e => {
@@ -16,7 +17,11 @@ handleSubmit = e => {
             window.location.replace("/");
         }
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+        error.style.display = ''
+    })
+
+    form.reset();
 }
 
 togglePassword = e => {
