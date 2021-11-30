@@ -1,11 +1,11 @@
 let termSection = document.getElementById("word_of_day");
-let recentSection = document.getElementById("most_recent");
+let recentSection = document.getElementById("most-likes");
 
 init = () => {
     seedDB();
     handleDate();
     handleTermoOfDay('init');
-    handleMostRecent();
+    handleMostLiked();
 }
 
 handleDate = () => {
@@ -75,13 +75,13 @@ format = string => {
     return newStr.join("");
 }
 
-handleMostRecent = () => {
-    axios.get('http://localhost:3000/recent')
+handleMostLiked = () => {
+    axios.get('http://localhost:3000/mostliked')
     .then(res => {
         let term = res.data[0];
         let html = `
         <div class="title">
-            <h3>Most Recent Addition</h3>
+            <h3>Most Liked Term</h3>
         </div>
 
         <div class="container bg-white">

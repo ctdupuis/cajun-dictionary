@@ -41,11 +41,11 @@ const {
     addTerm,
     getList,
     seed,
-    recentTerm,
     getTerm,
     addLike,
     checkLikes,
-    removeLike
+    removeLike,
+    mostLikedTerm
 } = require("./controller.js")
 
 // Production links for serving static files
@@ -63,7 +63,7 @@ app.use(express.static("public"));
 
 
 app.get("/seed", seed);
-app.get("/recent", recentTerm);
+app.get("/mostliked", mostLikedTerm);
 
 app.get("/", home);
 app.get("/auth", auth);

@@ -121,14 +121,15 @@ module.exports = {
         })
         .catch(err => console.log(err))
     },
-    recentTerm: (req, res) => {
+    mostLikedTerm: (req, res) => {
         sequelize.query(
             `
-                select t.term_id, t.name, t.pronunciation, t.definition, use_case, u.username 
+                select count(*) as likes, t.name, t.pronunciation, t.definition, t.use_case
                 from terms t
-                join users u
-                on t.user_id = u.user_id
-                order by term_id desc limit 1;
+                join likes l
+                on t.term_id = l.term_id
+                group by t.name, t.pronunciation, t.definition, t.use_case
+                limit 1;
             `
         )
         .then(dbRes => res.status(200).send(dbRes[0]));
