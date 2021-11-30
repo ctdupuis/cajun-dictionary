@@ -31,7 +31,7 @@ module.exports = {
             `
         )
         .then(dbRes => {
-            req.session.user = {id: id, username: username}
+            req.session.user = { user_id: id, username: username }
             res.status(200).send(req.session)
         })
         .catch(err => res.status(400).send(err));
