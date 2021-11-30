@@ -115,7 +115,7 @@ nav a:hover, .session-nav a:hover, aside a:hover {
 
 /*  BACKGROUNDS */
 .bg-red1 {
-    background-color: var(--red1);
+    background-image: linear-gradient(90deg, var(--red1), var(--red2));
 }
 
 .bg-red2 {
