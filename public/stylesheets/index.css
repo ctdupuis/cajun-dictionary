@@ -88,9 +88,15 @@ nav a:hover, .session-nav a:hover, aside a:hover {
     padding: 1%;
 }
 
+body {
+    background-image: url("fleur2.png");
+    background-blend-mode: color-burn;
+}
 
 .logo {
     color: whitesmoke;
+    padding: .5%;
+
 }
 
 .username {
