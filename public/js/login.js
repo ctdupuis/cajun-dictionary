@@ -11,7 +11,7 @@ handleSubmit = e => {
         username: username.value,
         password: password.value
     }
-    axios.post(`http://localhost:3000/login`, obj)
+    axios.post(`https://cajun-dictionary.herokuapp.com/login`, obj)
     .then(res => {
         if (res.data === "Login success") {
             window.location.replace("/");

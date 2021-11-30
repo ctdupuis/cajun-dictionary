@@ -14,7 +14,7 @@ handleDate = () => {
 }
 
 handleTermoOfDay = method => {
-    axios.get('http://localhost:3000/list/all')
+    axios.get('https://cajun-dictionary.herokuapp.com/list/all')
     .then(res => {
         let term = res.data[termIndex];
         let html = `
@@ -76,7 +76,7 @@ format = string => {
 }
 
 handleMostLiked = () => {
-    axios.get('http://localhost:3000/mostliked')
+    axios.get('https://cajun-dictionary.herokuapp.com/mostliked')
     .then(res => {
         let term = res.data[0];
         let html = `
@@ -124,10 +124,10 @@ interval = () => {
 }
 
 seedDB = async () => {
-    const response = await axios.get('http://localhost:3000/list/all')
+    const response = await axios.get('https://cajun-dictionary.herokuapp.com/list/all')
     const data = response.data
     if (data.length === 0) {
-        axios.get('http://localhost:3000/seed')
+        axios.get('https://cajun-dictionary.herokuapp.com/seed')
         .then(res => console.log(res.data));
     }
 }
