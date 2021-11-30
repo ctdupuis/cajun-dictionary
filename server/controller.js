@@ -129,6 +129,7 @@ module.exports = {
                 join likes l
                 on t.term_id = l.term_id
                 group by t.name, t.pronunciation, t.definition, t.use_case
+                order by likes desc
                 limit 1;
             `
         )
