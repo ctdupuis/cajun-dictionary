@@ -91,8 +91,8 @@ app.put("/term/:id", addLike);
 app.get("/likes/:term_id", checkLikes);
 app.delete("/likes/:term_id", removeLike);
 
-const PORT = process.env.PORT || 3000
+// const PORT = process.env.PORT || 3000
 
 
 
-app.listen(PORT, () => console.log(`Server running on Port ${PORT}`));
+app.listen(process.env.PORT || 3000);
