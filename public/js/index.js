@@ -39,7 +39,6 @@ logout = () => {
 handleLikeBtn = method => {
     const likeBtn = document.getElementById(`${method}`);
     const termId = likeBtn.dataset.termId;
-    // debugger
     if (!loggedIn) {
         likeBtn.classList.add("disabled");
         let html = `
@@ -149,7 +148,7 @@ handleTermoOfDay = () => {
         </div>
         <div id="term-day-container" class="container bg-white">
 
-            <h3>${term.name}</h3>
+            <h3>${format(term.name)}</h3>
             <span class="pronunciation">${term.pronunciation}</span>
 
             <div class="definition">
@@ -212,7 +211,7 @@ handleMostLiked = () => {
         </div>
 
         <div id="liked-term-container" class="container bg-white">
-            <h3>${term.name}</h3>
+            <h3>${format(term.name)}</h3>
             <span class="pronunciation">${term.pronunciation}</span>
 
             <div class="definition">
