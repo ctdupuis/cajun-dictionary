@@ -178,8 +178,10 @@ handleTermoOfDay = () => {
 
         termSection.innerHTML = html;
     })
-    handleLikeBtn('like1');
-    handleDate();
+    .then(next => {
+        handleLikeBtn('like1');
+        handleDate();
+    })
 }
 
 format = string => {
@@ -241,7 +243,8 @@ handleMostLiked = () => {
         `
         likedSection.innerHTML = html;
     })
-    handleLikeBtn('like2')
+    .then(next => handleLikeBtn('like2'))
+    
 }
 
 
