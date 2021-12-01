@@ -59,7 +59,10 @@ handleSubmit = e => {
         
     }
     axios.post('http://localhost:3000/add', obj)
-    .then(res => console.log(res.data))
+    .then(res => {
+        let id = res.data[0].term_id;
+        window.location.replace(`/list/${id}`);
+    })
 
     form.reset();
 }

@@ -77,6 +77,8 @@ module.exports = {
             `
                 insert into terms (name, pronunciation, definition, use_case, user_id)
                 values ('${name}', '${pronunciation}', '${definition}', '${useCase}', '${req.session.user.user_id}');
+
+                select term_id from terms where name='${name}';
             `
         )
         .then(dbRes => res.status(200).send(dbRes[0]))

@@ -107,7 +107,7 @@ renderTerm = term => {
     let html = `
     <div data-user-id="${term.user_id}" class="title flex space-bet show">
         <div class="flex col">
-            <h3>${term.name}</h3>
+            <h3>${format(term.name)}</h3>
             <span class="pronunciation">${term.pronunciation}</span>
         </div>
         <span>Submitted by ${term.username}</span>
