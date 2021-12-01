@@ -32,7 +32,7 @@ checkSession = async () => {
 }
 
 logout = () => {
-    axios.get('http://localhost:3000/logout', { withCredentials: true })
+    axios.get('https://cajun-dictionary.herokuapp.com/logout', { withCredentials: true })
     .then(res => window.location.replace("/"))
 }
 
@@ -44,7 +44,7 @@ handleLikeBtn = method => {
         likeBtn.classList.add("disabled");
         let html = `
         <div style="text-align: center;">
-            <span><a class="list" href="http://localhost:3000/login">Log In</a> to like a term</span>
+            <span><a class="list" href="https://cajun-dictionary.herokuapp.com/login">Log In</a> to like a term</span>
         </div>
         `
 
@@ -64,7 +64,7 @@ handleLikeBtn = method => {
 
 updateBtn = (method, termId) => {
     const likeBtn = document.getElementById(`${method}`)
-    axios.get(`http://localhost:3000/likes/${termId}`)
+    axios.get(`https://cajun-dictionary.herokuapp.com/likes/${termId}`)
     .then(res => {
         if (res.data.length === 0) {
             likeBtn.innerText = "Like";
@@ -89,7 +89,7 @@ addLike = event => {
     // number div to target
     let count = event.target.previousElementSibling.id;
 
-    axios.put(`http://localhost:3000/term/${id}`)
+    axios.put(`https://cajun-dictionary.herokuapp.com/term/${id}`)
     .then(res => {
         updateBtn(method, id);
         updateCount(count, id);
@@ -106,7 +106,7 @@ unlike = event => {
     // number div to target
     let count = event.target.previousElementSibling.id;
 
-    axios.delete(`http://localhost:3000/likes/${id}`)
+    axios.delete(`https://cajun-dictionary.herokuapp.com/likes/${id}`)
     .then(res => {
         updateBtn(method, id);
         updateCount(count, id);
@@ -114,7 +114,7 @@ unlike = event => {
 }
 
 updateCount = (method, termId) => {
-    axios.get(`http://localhost:3000/term/${termId}`)
+    axios.get(`https://cajun-dictionary.herokuapp.com/term/${termId}`)
     .then(res => {
         let likecount = document.getElementById(`${method}`);
         likecount.innerText = res.data.likes;
