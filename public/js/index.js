@@ -138,7 +138,7 @@ handleDate = () => {
 
 
 handleTermoOfDay = () => {
-    axios.get('https://cajun-dictionary.herokuapp.com/list/all')
+    axios.get(`https://cajun-dictionary.herokuapp.com/term/${termDayId}`)
     .then(res => {
         let term = res.data;
         let html = `
