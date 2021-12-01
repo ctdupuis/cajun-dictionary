@@ -79,6 +79,10 @@ nav a:hover, .session-nav a:hover, aside a:hover {
     width: 15%;
 }
 
+.active {
+    background-color: var(--red1);
+}
+
 .session-nav a {
     margin-right: 4%;
     font-size: larger;
