@@ -179,7 +179,7 @@ handleTermoOfDay = () => {
         termSection.innerHTML = html;
     })
     .then(next => {
-        handleLikeBtn('like1');
+        setTimeout(() => handleLikeBtn('like1'), 700)
         handleDate();
     })
 }
@@ -243,7 +243,7 @@ handleMostLiked = () => {
         `
         likedSection.innerHTML = html;
     })
-    .then(next => handleLikeBtn('like2'))
+    .then(next => setTimeout(() => handleLikeBtn('like2'), 700))
     
 }
 
