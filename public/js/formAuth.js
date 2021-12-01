@@ -1,5 +1,5 @@
 checkSession = async () => {
-    const response = await axios.get('http://localhost:3000/auth', 
+    const response = await axios.get('https://cajun-dictionary.herokuapp.com/auth', 
     { withCredentials: true });
     const data = response.data;
     if (data.username) {

@@ -7,7 +7,7 @@ const navItems = document.getElementsByClassName('nav-item');
 navItems[1].classList.add("active");
 
 checkSession = async () => {
-    const response = await axios.get('http://localhost:3000/auth', 
+    const response = await axios.get('https://cajun-dictionary.herokuapp.com/auth', 
     { withCredentials: true });
     const data = response.data;
     if (data.username) {
@@ -22,7 +22,7 @@ checkSession = async () => {
 }
 
 getList = async () => {
-    const response = await axios.get('http://localhost:3000/list/all')
+    const response = await axios.get('https://cajun-dictionary.herokuapp.com/list/all')
     const data = response.data;
     renderList(data);
 }
@@ -71,7 +71,7 @@ renderList = data => {
         if (letter === target.dataset.id) {
             let termHtml = `
             <div data-term="${format(term.name)}" class="flex space-bet">
-                <a class="list" href="http://localhost:3000/list/${term.term_id}">${format(term.name)}</a><span>${term.username}</span>
+                <a class="list" href="https://cajun-dictionary.herokuapp.com/list/${term.term_id}">${format(term.name)}</a><span>${term.username}</span>
             </div>
             `
             target.parentElement.innerHTML += termHtml;

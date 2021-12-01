@@ -8,7 +8,7 @@ const addTab = document.getElementById('add-tab');
 let loggedIn = false;
 
 checkSession = async () => {
-    const response = await axios.get('http://localhost:3000/auth', 
+    const response = await axios.get('https://cajun-dictionary.herokuapp.com/auth', 
     { withCredentials: true });
     const data = response.data;
     fetchTerm();
@@ -25,7 +25,7 @@ checkSession = async () => {
 }
 
 logout = () => {
-    axios.get('http://localhost:3000/logout', { withCredentials: true })
+    axios.get('https://cajun-dictionary.herokuapp.com/logout', { withCredentials: true })
     .then(res => window.location.replace("/"))
 }
 
@@ -35,7 +35,7 @@ handleLikeBtn = () => {
         likeBtn.classList.add("disabled");
         let html = `
         <div style="text-align: center;">
-            <span><a class="list" href="http://localhost:3000/login">Log In</a> to like a term</span>
+            <span><a class="list" href="https://cajun-dictionary.herokuapp.com/login">Log In</a> to like a term</span>
         </div>
         `
         container.innerHTML += html;
@@ -47,7 +47,7 @@ handleLikeBtn = () => {
 
 updateBtn = () => {
     const likeBtn = document.getElementById('like');
-    axios.get(`http://localhost:3000/likes/${wordId}`)
+    axios.get(`https://cajun-dictionary.herokuapp.com/likes/${wordId}`)
     .then(res => {
         if (res.data.length === 0) {
             likeBtn.innerText = "Like";
@@ -66,7 +66,7 @@ updateBtn = () => {
 addLike = event => {
     let id = event.target.dataset.termId;
     // fetch the server to add a new like
-    axios.put(`http://localhost:3000/term/${id}`)
+    axios.put(`https://cajun-dictionary.herokuapp.com/term/${id}`)
     .then(res => {
         updateBtn();
         updateCount();
@@ -75,7 +75,7 @@ addLike = event => {
 
 unlike = event => {
     let id = event.target.dataset.termId;
-    axios.delete(`http://localhost:3000/likes/${id}`)
+    axios.delete(`https://cajun-dictionary.herokuapp.com/likes/${id}`)
     .then(res => {
         updateBtn();
         updateCount();
@@ -83,7 +83,7 @@ unlike = event => {
 }
 
 updateCount = () => {
-    axios.get(`http://localhost:3000/term/${wordId}`)
+    axios.get(`https://cajun-dictionary.herokuapp.com/term/${wordId}`)
     .then(res => {
         let likecount = document.getElementById('num');
         likecount.innerText = res.data.likes;
@@ -95,7 +95,7 @@ updateTitle = term => {
 }
 
 fetchTerm = () => {
-    axios.get(`http://localhost:3000/term/${wordId}`)
+    axios.get(`https://cajun-dictionary.herokuapp.com/term/${wordId}`)
     .then(res => {
         renderTerm(res.data);
         updateTitle(res.data);

@@ -8,7 +8,7 @@ const addTab = document.getElementById('add-tab');
 addTab.classList.add("active");
 
 checkSession = async () => {
-    const response = await axios.get('http://localhost:3000/auth', 
+    const response = await axios.get('https://cajun-dictionary.herokuapp.com/auth', 
     { withCredentials: true });
     const data = response.data;
     if (!data.username) {
@@ -25,7 +25,7 @@ checkSession = async () => {
 }
 
 logout = () => {
-    axios.get('http://localhost:3000/logout', { withCredentials: true })
+    axios.get('https://cajun-dictionary.herokuapp.com/logout', { withCredentials: true })
     .then(res => window.location.replace("/"))
 }
 
@@ -58,11 +58,13 @@ handleSubmit = e => {
         useCase: format(useCase.value),
         
     }
-    axios.post('http://localhost:3000/add', obj)
+
+    axios.post('https://cajun-dictionary.herokuapp.com/add', obj)
     .then(res => {
         let id = res.data[0].term_id;
         window.location.replace(`/list/${id}`);
     })
+
 
     form.reset();
 }

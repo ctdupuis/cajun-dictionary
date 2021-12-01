@@ -1,4 +1,4 @@
-const devUrl = 'http://localhost:3000'
+const devUrl = 'https://cajun-dictionary.herokuapp.com'
 
 const form = document.getElementById('register');
 const username = document.getElementById('username');
