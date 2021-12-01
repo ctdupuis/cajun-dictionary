@@ -2,6 +2,9 @@ const container = document.getElementById('word-container');
 const search = document.getElementById('search');
 const addTab = document.getElementById('add-tab');
 
+const navItems = document.getElementsByClassName('nav-item');
+
+navItems[1].classList.add("active");
 
 checkSession = async () => {
     const response = await axios.get('http://localhost:3000/auth', 

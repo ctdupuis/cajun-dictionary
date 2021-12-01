@@ -2,7 +2,9 @@ let termSection = document.getElementById("word_of_day");
 let likedSection = document.getElementById("most-likes");
 let container = document.getElementById('word-container');
 const addTab = document.getElementById('add-tab');
+const navItems = document.getElementsByClassName('nav-item');
 
+navItems[0].classList.add("active");
 
 let loggedIn = false;
 

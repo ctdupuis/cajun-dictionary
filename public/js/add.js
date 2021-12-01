@@ -5,6 +5,8 @@ let useCase = document.getElementById('use-case');
 let pronunciation = document.getElementById('pronunciation');
 const addTab = document.getElementById('add-tab');
 
+addTab.classList.add("active");
+
 checkSession = async () => {
     const response = await axios.get('http://localhost:3000/auth', 
     { withCredentials: true });
