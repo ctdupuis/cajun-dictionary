@@ -124,11 +124,11 @@ module.exports = {
     mostLikedTerm: (req, res) => {
         sequelize.query(
             `
-                select count(*) as likes, t.name, t.pronunciation, t.definition, t.use_case
+                select count(*) as likes, t.term_id, t.name, t.pronunciation, t.definition, t.use_case
                 from terms t
                 join likes l
                 on t.term_id = l.term_id
-                group by t.name, t.pronunciation, t.definition, t.use_case
+                group by t.term_id, t.name, t.pronunciation, t.definition, t.use_case
                 order by likes desc
                 limit 1;
             `
