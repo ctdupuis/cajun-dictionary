@@ -8,8 +8,7 @@ let loggedIn = false;
 
 init = () => {
     seedDB();
-    handleDate();
-    handleTermoOfDay('init');
+    handleTermoOfDay();
     handleMostLiked();
 }
 
@@ -126,7 +125,7 @@ let termDayId = 1;
 
 interval = () => {
     termDayId++;
-    handleTermoOfDay('new');
+    handleTermoOfDay();
 }
 
 setInterval(interval, dayInMs);
@@ -136,12 +135,17 @@ handleDate = () => {
     document.getElementById('date').innerText = date.toDateString();
 }
 
-handleTermoOfDay = method => {
+handleTermoOfDay = () => {
     axios.get(`http://localhost:3000/term/${termDayId}`)
     .then(res => {
         let term = res.data;
         let html = `
+        <div class="title flex space-bet">
+            <h3>Term of the Day</h3>
+            <span id="date"></span>
+        </div>
         <div id="term-day-container" class="container bg-white">
+
             <h3>${term.name}</h3>
             <span class="pronunciation">${term.pronunciation}</span>
 
@@ -170,16 +174,9 @@ handleTermoOfDay = method => {
         </div>
         `
 
-        // Add the HTMl for the first term of the day
-        if (method === 'init') {
-            termSection.innerHTML += html;
-        }
-
-        // Change the HTML for a new term of the day
-        if (method === 'new') {
-            termSection.innerHTML = html;
-        }
-        handleLikeBtn('like1')
+        termSection.innerHTML = html;
+        handleLikeBtn('like1');
+        handleDate();
     })
 }
 
