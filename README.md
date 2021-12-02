@@ -1,6 +1,6 @@
 # Cajun Dictionary
 
-![Demo Screenshot](demo.png)
+![Demo Screenshot](demo-home.png)
 
 [Live Demo](https://cajun-dictionary.herokuapp.com)
 
