@@ -16,7 +16,7 @@ The required items are starred.
 
 ### MVP
 
-[] app has at least 3 main features *
+[x] app has at least 3 main features *
 
 [X] front end makes a request to the server and handles the response *
 
@@ -44,9 +44,9 @@ The required items are starred.
 
 [X] app includes a POST endpoint and handler function *
 
-[] app includes a PUT endpoint and handler function
+[x] app includes a PUT endpoint and handler function
 
-[] app includes a DELETE endpoint and handler function
+[x] app includes a DELETE endpoint and handler function
 
 [X] app utilizes Sequelize
 
@@ -64,8 +64,8 @@ The required items are starred.
 
 ### Presentation
 
-[] discusses project purpose and demonstrates MVP *
+[x] discusses project purpose and demonstrates MVP *
 
-[] does not discuss broken/unimplemented features
+[x] does not discuss broken/unimplemented features
 
-[] recording is between 2-3 minutes
+[x] recording is between 2-3 minutes
