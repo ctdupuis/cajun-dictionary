@@ -32,7 +32,7 @@ The required items are starred.
 
 [X] app includes 1+ additional view(s)
 
-[X?] styling includes flexbox
+[X] styling includes flexbox
 
 [X] at least 1 view is responsive
 

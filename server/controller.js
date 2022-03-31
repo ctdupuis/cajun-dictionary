@@ -209,7 +209,6 @@ module.exports = {
     removeLike: (req, res) => {
         const { user_id } = req.session.user;
         const termId = req.params.term_id;
-        console.log(user_id, termId)
         sequelize.query(
             `
                 delete from likes where user_id='${user_id}' and term_id='${termId}';
