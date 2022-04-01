@@ -5,9 +5,9 @@ export default function Header() {
   return (
     <header id="section-head" className="bg-gradient">
         <div className="container flex space-bet center-align">
-            <h1 className="logo">Cajun Dictionary</h1>
+            <h1 className={classes.logo}>Cajun Dictionary</h1>
 
-            <div className="session-nav">
+            <div className={classes.session_nav}>
                 <a href="/register">Register</a>
                 <a href="/login">Login</a>
             </div>
