@@ -8,9 +8,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
     "next": "12.1.4",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "sequelize": "^6.17.0"
   },
   "devDependencies": {
     "eslint": "8.12.0",
