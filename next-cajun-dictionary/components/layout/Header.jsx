@@ -3,7 +3,7 @@ import classes from './header.module.css';
 
 export default function Header() {
   return (
-    <header id="section-head" className="bg-gradient">
+    <header className="bg-gradient">
         <div className="container flex space-bet center-align">
             <h1 className={classes.logo}>Cajun Dictionary</h1>
 
