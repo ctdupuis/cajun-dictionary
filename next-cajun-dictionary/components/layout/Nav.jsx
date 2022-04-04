@@ -7,7 +7,7 @@ export default function Nav() {
             <a href="/">Home</a>
         </div>
         <div className={classes.nav_item}>
-            <a href="/list">List of Terms</a>
+            <a href="/terms">List of Terms</a>
         </div>
         <div className={classes.nav_item}>
             <a href="/about">About</a>

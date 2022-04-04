@@ -5,14 +5,14 @@ export default function TermCard(props) {
 
   if (props.type === 'term-of-day') {
     title = (
-      <div class="title flex space-bet" style={{ alignItems: "center"}}>
+      <div className="title flex space-bet" style={{ alignItems: "center"}}>
         <h3>Term of the Day</h3>
         <span id="date">{date}</span>
       </div>
     )
   } else if (props.type === 'most-liked') {
     title = (
-      <div class="title">
+      <div className="title">
         <h3>Most Liked Term</h3>
       </div>
     )
