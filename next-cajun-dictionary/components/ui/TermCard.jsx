@@ -1,25 +1,24 @@
-import { Fragment } from "react";
-
 export default function TermCard(props) {
 
-  let title = <div>Title Div</div>;
+  let title;
+  let date = new Date().toDateString();
 
-  // switch (props.type) {
-  //   case "term-of-day":
-  //     title = (
-  //       <div className="title flex space-bet">
-  //         <h3>Term of the Day</h3>
-  //         <span className="date">Date goes here</span>
-  //       </div>
-  //     )
-  //   case "most-liked":
-  //     title = (
-  //       <div className="title flex space-bet">
-  //         <h3>Most Liked Term</h3>
-  //       </div>
-  //     )
-  //   default: <div>Loading...</div>
-  // }
+  if (props.type === 'term-of-day') {
+    title = (
+      <div class="title flex space-bet" style={{ alignItems: "center"}}>
+        <h3>Term of the Day</h3>
+        <span id="date">{date}</span>
+      </div>
+    )
+  } else if (props.type === 'most-liked') {
+    title = (
+      <div class="title">
+        <h3>Most Liked Term</h3>
+      </div>
+    )
+  } else {
+    title = (<div>Title Here</div>)
+  }
 
   return (
     <section className="container bg-red1" style={{width: "45%"}}>
@@ -31,20 +30,18 @@ export default function TermCard(props) {
         <div className="definition">
           <p>
             <strong>Definition:</strong>
-
-            <blockquote>
-              TERM DEFINITION
-            </blockquote>
+          </p>
+          <p>
+            TERM DEFINITION
           </p>
         </div>
 
         <div className="use-case">
           <p>
             <strong>Use Case:</strong>
-
-            <blockquote>
-              USE CASE
-            </blockquote>
+          </p>
+          <p>
+            USE CASE
           </p>
         </div>
 
