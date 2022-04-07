@@ -1,3 +1,4 @@
+import LikeButton from '../LikeButton/LikeButton';
 import styles from './term-card.module.css'
 
 export default function TermCard(props) {
@@ -47,10 +48,7 @@ export default function TermCard(props) {
           </p>
         </div>
 
-        <div className="likes_container">
-          <div className="num_likes">6</div>
-          <div className="like_action">Like</div>
-        </div>
+        <LikeButton />
       </div>
 
     </section>

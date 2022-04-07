@@ -1,6 +1,7 @@
 import axios from "axios";
 import { getAllTerms } from "../../helpers/api-util";
 import styles from '../../components/ui/Terms/term-card.module.css';
+import LikeButton from "../../components/ui/LikeButton/LikeButton";
 
 export default function TermShowPage({ term }) {
 
@@ -36,7 +37,7 @@ export default function TermShowPage({ term }) {
             </p>
           </div>
 
-
+          <LikeButton />
         </div>
       </section>
     </div>

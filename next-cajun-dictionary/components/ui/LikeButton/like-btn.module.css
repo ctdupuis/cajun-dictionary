@@ -1,0 +1,14 @@
+.num_likes, .like_action {
+    border: 1px solid var(--red1);
+    padding: 1%;
+}
+
+.like_action {
+    background-color: var(--red1);
+    color: whitesmoke;
+}
+
+.like_action:hover {
+    background-color: var(--red2);
+    cursor: pointer;
+}
