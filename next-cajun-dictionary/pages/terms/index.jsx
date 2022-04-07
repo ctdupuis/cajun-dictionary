@@ -1,5 +1,7 @@
 import axios from 'axios';
 import styles from '../../styles/term-list.module.css';
+import { termFormat } from '../../helpers/formatting';
+import Link from 'next/link';
 
 export default function TermList(props) {
     const letters = props.terms.map(term => term.name.slice(0, 1).toUpperCase())
@@ -10,7 +12,7 @@ export default function TermList(props) {
         let termsOfThisLetter = props.terms.filter(term => term.name.charAt(0).toUpperCase() === letter).map(term => {
             return(
                 <div className="flex space-bet">
-                    <a className={styles.list}>{term.name}</a>
+                    <a className={styles.list}>{termFormat(term.name)}</a>
                     <span>{term.username}</span>
                 </div>
             )
