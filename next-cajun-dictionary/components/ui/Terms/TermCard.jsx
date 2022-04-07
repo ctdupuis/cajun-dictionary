@@ -4,7 +4,7 @@ export default function TermCard(props) {
 
   let title;
   let date = new Date().toDateString();
-
+  
   if (props.type === 'term-of-day') {
     title = (
       <div className={styles.title + " flex space-bet"} style={{ alignItems: "center"}}>
@@ -19,7 +19,7 @@ export default function TermCard(props) {
       </div>
     )
   } else {
-    title = (<div>Title Here</div>)
+    title = null;
   }
 
   return (
