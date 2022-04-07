@@ -1,7 +1,7 @@
 import { getTermById } from "../../../helpers/api-util";
 
 export default async function handler(req, res) {
-    const term = await getTermById(req.params.id);
+    const term = await getTermById(req.query.id);
 
     if (term) {
         res.status(200).json({ term: term })

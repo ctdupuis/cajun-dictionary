@@ -21,10 +21,9 @@ export const getTermById = async(id) => {
         from terms t
         join users u
         on t.user_id = u.user_id
-        order by name asc
-        where term_id='${id}';
+        where term_id=${id};
         `
     )
-    const term = res[0];
+    const term = res[0].pop();
     return term;
 }

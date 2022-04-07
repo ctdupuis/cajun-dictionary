@@ -7,3 +7,7 @@
 .definition, .use_case {
     margin: 2%;
 }
+
+.show {
+    font-size: x-large;
+}
