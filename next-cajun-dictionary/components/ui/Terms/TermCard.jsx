@@ -1,3 +1,5 @@
+import styles from './term-card.module.css'
+
 export default function TermCard(props) {
 
   let title;
@@ -5,14 +7,14 @@ export default function TermCard(props) {
 
   if (props.type === 'term-of-day') {
     title = (
-      <div className="title flex space-bet" style={{ alignItems: "center"}}>
+      <div className={styles.title + " flex space-bet"} style={{ alignItems: "center"}}>
         <h3>Term of the Day</h3>
         <span id="date">{date}</span>
       </div>
     )
   } else if (props.type === 'most-liked') {
     title = (
-      <div className="title">
+      <div className={styles.title}>
         <h3>Most Liked Term</h3>
       </div>
     )
@@ -27,7 +29,7 @@ export default function TermCard(props) {
         <h3>TERM NAME</h3>
         <span className="pronounce">TERM PRONUNCIATION</span>
 
-        <div className="definition">
+        <div className={styles.definition}>
           <p>
             <strong>Definition:</strong>
           </p>
@@ -36,7 +38,7 @@ export default function TermCard(props) {
           </p>
         </div>
 
-        <div className="use-case">
+        <div className={styles.use_case}>
           <p>
             <strong>Use Case:</strong>
           </p>
@@ -45,7 +47,7 @@ export default function TermCard(props) {
           </p>
         </div>
 
-        <div className="likes-container">
+        <div className="likes_container">
           <div className="num_likes">6</div>
           <div className="like_action">Like</div>
         </div>

@@ -1,0 +1,9 @@
+.title {
+    margin-bottom: 2%;
+    border-bottom: 1px solid whitesmoke;
+    font-size: larger;
+}
+
+.definition, .use_case {
+    margin: 2%;
+}

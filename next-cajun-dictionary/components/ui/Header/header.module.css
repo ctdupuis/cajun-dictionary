@@ -1,17 +1,4 @@
-.nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.nav a, .session-nav a {
-    color: rgb(213, 212, 212);
-    text-decoration: none;
-}
-
-.nav a:hover, .session-nav a:hover {
-    color: white;
-}
 
 .session_nav {
     width: 15%;
@@ -24,10 +11,6 @@
 .session_nav a {
     margin-right: 4%;
     font-size: larger;
-}
-
-.nav_item {
-    padding: 1%;
 }
 
 .logo {

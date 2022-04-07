@@ -1,4 +1,4 @@
-import classes from './header.module.css';
+import classes from './nav.module.css';
 
 export default function Nav() {
   return (
@@ -12,7 +12,7 @@ export default function Nav() {
         <div className={classes.nav_item}>
             <a href="/about">About</a>
         </div>
-        <div id="add-tab" className={classes.nav_item}>
+        <div className={classes.nav_item}>
             <a href="/add">Add Term</a>
         </div>
     </nav>

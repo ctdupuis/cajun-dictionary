@@ -1,4 +1,4 @@
-import TermCard from '../components/ui/TermCard';
+import TermCard from '../components/ui/Terms/TermCard';
 
 export default function Home() {
   return (
