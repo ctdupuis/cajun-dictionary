@@ -1,0 +1,24 @@
+.word_wrapper {
+    margin-top: 1.5%;
+}
+
+.list {
+    text-decoration: none;
+    color: var(--red1);
+    display: block;
+}
+
+.list:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.term_wrapper {
+    margin-top: 1%;
+}
+
+.list_title {
+    border-bottom: 1px solid var(--red2);
+    font-size: larger;
+    color: var(--red2);
+}

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import styles from '../../styles/term-list.module.css';
 
 export default function TermList(props) {
     const letters = props.terms.map(term => term.name.slice(0, 1).toUpperCase())
@@ -9,15 +10,15 @@ export default function TermList(props) {
         let termsOfThisLetter = props.terms.filter(term => term.name.charAt(0).toUpperCase() === letter).map(term => {
             return(
                 <div className="flex space-bet">
-                    <a className="list">{term.name}</a>
+                    <a className={styles.list}>{term.name}</a>
                     <span>{term.username}</span>
                 </div>
             )
         })
   
         return(
-            <div className="word-wrapper">
-                <div className="list-title flex space-bet">
+            <div className={styles.word_wrapper}>
+                <div className={styles.list_title + " flex space-bet"}>
                     <h3>{letter}</h3><h3>Submitted by</h3>
                 </div>
                 {termsOfThisLetter}
