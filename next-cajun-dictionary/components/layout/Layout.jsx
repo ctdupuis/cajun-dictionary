@@ -1,8 +1,7 @@
 import Head from "next/head";
 import { Fragment } from "react";
-import Header from "./Header";
-import Nav from "./Nav";
-// import MainHeader from "./MainHeader";
+import Header from "../ui/Header";
+import Nav from "../ui/Nav";
 
 
 export default function Layout(props) {
