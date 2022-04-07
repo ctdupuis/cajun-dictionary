@@ -12,7 +12,9 @@ export default function TermList(props) {
         let termsOfThisLetter = props.terms.filter(term => term.name.charAt(0).toUpperCase() === letter).map(term => {
             return(
                 <div className="flex space-bet">
-                    <a className={styles.list}>{termFormat(term.name)}</a>
+                    <Link href={`/terms/${term.term_id}`} >
+                        <a className={styles.list}>{termFormat(term.name)}</a>
+                    </Link>
                     <span>{term.username}</span>
                 </div>
             )
