@@ -75,8 +75,11 @@ export default function AuthForm(props) {
                 { formTitle }
                 <form onSubmit={handleSubmit}>
 
+                    <div className={styles.form_group}>
+
                     <label htmlFor='username'>Username</label>
                     <input type='text' name='username' onChange={handleChange} value={formData.username}/>
+                    </div>
 
                     <label htmlFor='password'>Password</label>
                     <input type={showPassword} name='password' onChange={handleChange} value={formData.password}/>

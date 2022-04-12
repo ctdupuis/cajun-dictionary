@@ -10,3 +10,9 @@
 .active, .inactive {
     margin-right: 10%;
 }
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

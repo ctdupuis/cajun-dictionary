@@ -7,8 +7,7 @@ export default function Header() {
             <h1 className={classes.logo}>Cajun Dictionary</h1>
 
             <div className={classes.session_nav}>
-                <a href="/register">Register</a>
-                <a href="/login">Login</a>
+                <a href="/auth">Login</a>
             </div>
         </div>
     </header>
