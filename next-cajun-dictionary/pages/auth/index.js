@@ -73,18 +73,20 @@ export default function AuthForm(props) {
         <div className="wrapper">
             <section className="container bg-red1">
                 { formTitle }
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className={styles.form}>
 
                     <div className={styles.form_group}>
-
-                    <label htmlFor='username'>Username</label>
-                    <input type='text' name='username' onChange={handleChange} value={formData.username}/>
+                        <label htmlFor='username'>Username</label>
+                        <input type='text' name='username' onChange={handleChange} value={formData.username}/>
                     </div>
 
-                    <label htmlFor='password'>Password</label>
-                    <input type={showPassword} name='password' onChange={handleChange} value={formData.password}/>
+                    <div className={styles.form_group}>
+                        <label htmlFor='password'>Password</label>
+                        <input type={showPassword} name='password' onChange={handleChange} value={formData.password}/>
+                        
+                        <PasswordEye showPassword={showPassword} handleClick={togglePasswordShow} />
+                    </div>
 
-                    <PasswordEye showPassword={showPassword} handleClick={togglePasswordShow} />
 
                     <button>{capitalize(formType)}</button>
                 </form>

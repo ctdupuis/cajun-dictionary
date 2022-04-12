@@ -8,11 +8,15 @@
 }
 
 .active, .inactive {
-    margin-right: 10%;
+    margin: 1% 5%;
 }
 
-.form-group {
+.form, .form-group {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.form {
+    flex-direction: column;
 }
