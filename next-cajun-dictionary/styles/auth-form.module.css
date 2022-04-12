@@ -1,0 +1,12 @@
+.active {
+    border-bottom: 1px solid white;
+}
+
+.inactive:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.active, .inactive {
+    margin-right: 10%;
+}
