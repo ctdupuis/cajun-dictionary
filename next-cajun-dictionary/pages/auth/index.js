@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PasswordEye from "../../components/ui/Icons/PasswordEye";
 
 export default function AuthForm(props) {
     const [form, setForm] = useState('login');
@@ -25,7 +26,7 @@ export default function AuthForm(props) {
 
                     <label htmlFor='password'>Password</label>
                     <input type={showPassword} name='password' />
-                    <button onClick={togglePasswordShow}>Show Password</button>
+                    <PasswordEye showPassword={showPassword} handleClick={togglePasswordShow} />
                 </form>
             </section>
         </div>
