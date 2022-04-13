@@ -6,7 +6,6 @@ import '../styles/globals.css'
 function MyApp({ Component, pageProps }) {
   return (
     <AppWrapper>
-
       <Layout>
         <Head>
           <title>Cajun Dictionary</title>
@@ -16,7 +15,6 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
     </AppWrapper>
-    // </AlertContextProvider> 
   )
 }
 

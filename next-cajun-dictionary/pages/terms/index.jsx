@@ -11,7 +11,7 @@ export default function TermList(props) {
     const titles = uniqLetters.map(letter => {
         let termsOfThisLetter = props.terms.filter(term => term.name.charAt(0).toUpperCase() === letter).map(term => {
             return(
-                <div className="flex space-bet">
+                <div className="flex space-bet" key={term.term_id}>
                     <Link href={`/terms/${term.term_id}`} >
                         <a className={styles.list}>{termFormat(term.name)}</a>
                     </Link>
@@ -22,8 +22,8 @@ export default function TermList(props) {
   
         return(
             <div className={styles.word_wrapper}>
-                <div className={styles.list_title + " flex space-bet"}>
-                    <h3>{letter}</h3><h3>Submitted by</h3>
+                <div className={styles.list_title + " flex space-bet"} key={letter}>
+                    <h4>{letter}</h4><h4>Submitted by</h4>
                 </div>
                 {termsOfThisLetter}
             </div>

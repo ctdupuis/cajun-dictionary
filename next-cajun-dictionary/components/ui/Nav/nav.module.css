@@ -4,15 +4,20 @@
     align-items: center;
 }
 
-.nav a, .session-nav a {
+.nav a {
     color: rgb(213, 212, 212);
     text-decoration: none;
 }
 
-.nav a:hover, .session-nav a:hover {
+.nav a:hover {
     color: white;
 }
 
 .nav_item {
     padding: 1%;
+}
+
+.active {
+    padding: 1%;
+    background-color: var(--red1);
 }
