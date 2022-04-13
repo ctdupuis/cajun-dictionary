@@ -11,7 +11,7 @@
     margin: 1% 5%;
 }
 
-.form, .form-group {
+.form, .form_group {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,4 +19,17 @@
 
 .form {
     flex-direction: column;
+}
+
+.form_group {
+    margin: 1%;
+}
+
+.form_group label {
+    margin-right: .5%;
+}
+
+.input {
+    margin: 1%;
+    /* padding: 2%; */
 }

@@ -1,5 +1,6 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import styles from './password-eye.module.css';
 
 export default function PasswordEye({ showPassword, handleClick }) {
 
@@ -7,9 +8,9 @@ export default function PasswordEye({ showPassword, handleClick }) {
         <Fragment>
             {
             showPassword === 'password' ? 
-            <FaEyeSlash onClick={handleClick} /> 
+            <FaEyeSlash className={styles.eye} onClick={handleClick} /> 
             : 
-            <FaEye onClick={handleClick} />
+            <FaEye className={styles.eye} onClick={handleClick} />
             }
         </Fragment>
     )
