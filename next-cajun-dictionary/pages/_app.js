@@ -1,11 +1,11 @@
-import Head from 'next/head'
-import Layout from '../components/layout/Layout'
-import { AppWrapper } from '../store/app'
-import '../styles/globals.css'
+import Head from 'next/head';
+import Layout from '../components/layout/Layout';
+import '../styles/globals.css';
+import { AuthProvider } from '../context/AuthContext';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AppWrapper>
+    <AuthProvider>
       <Layout>
         <Head>
           <title>Cajun Dictionary</title>
@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
         </Head>
         <Component {...pageProps} />
       </Layout>
-    </AppWrapper>
+    </AuthProvider>
   )
 }
 

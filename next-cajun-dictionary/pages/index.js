@@ -1,18 +1,24 @@
+import { useContext } from 'react';
 import TermCard from '../components/ui/Terms/TermCard';
-import { useAppContext } from '../store/app';
+import AuthContext from '../context/AuthContext';
+
 
 export default function Home() {
-  const { user: { currentUser, setCurrentUser } } = useAppContext();
+  const { user, login, logout } = useContext(AuthContext);
 
-  const login = () => {
-    currentUser ? setCurrentUser(undefined) : setCurrentUser({ name: 'Cody' })
-  }
+  // const login = () => {
+  //   user ? setUser(undefined) : setUser({ name: 'Cody' })
+  // }
 
   return (
     <div className="wrapper">
 
-      { currentUser ? <h1>{currentUser.name}</h1> : <h1>No user in context</h1>}
-      <button onClick={login}>Login</button>
+      { user ? <h1>{user.name}</h1> : <h1>No user in context</h1>}
+      { user ? 
+        <button onClick={() => logout()}>Logout</button>
+        :
+        <button onClick={() => login({ name: "Cody"})}>Login</button>
+      }
       <div className="flex space-even">
         <TermCard type={'term-of-day'} />
         <TermCard type={'most-liked'} />
