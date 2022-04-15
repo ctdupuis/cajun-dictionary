@@ -7,7 +7,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background-color: rgb(242, 238, 213);
+  background-color: lightgrey;
   font-family: 'Permanent Marker', cursive;
   font-family: 'Play', sans-serif;
 }
@@ -16,6 +16,11 @@ button, input {
   font-family: 'Permanent Marker', cursive;
   font-family: 'Play', sans-serif;
   border-radius: 5px;
+}
+
+input { 
+  outline: none;
+  border-style: groove;
 }
 
 a {

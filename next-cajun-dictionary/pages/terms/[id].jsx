@@ -13,7 +13,7 @@ export default function TermShowPage({ term }) {
           <div className={styles.title + " flex space-bet"}>
             <div className='flex col'>
               <h3>{term.name}</h3>
-              <span>{term.pronunciation}</span>
+              <span>pronounced {term.pronunciation}</span>
             </div>
             <span>Submitted by {term.username}</span>
           </div>

@@ -1,20 +1,21 @@
 import LikeButton from '../LikeButton/LikeButton';
 import styles from './term-card.module.css';
 import {AiTwotoneLike, AiOutlineCalendar} from 'react-icons/ai';
+import moment from 'moment';
 
 
 export default function TermCard(props) {
 
   let title;
-  let date = new Date().toDateString();
+  let date = moment().format("MM[/]DD[/]YYYY");
   
   if (props.type === 'term-of-day') {
     title = (
       <div className={styles.title} >
         <h3>Term of the Day</h3>
-        <div style={{ display: "flex", alignItems: "center"}}>
+        <div className={styles.calendar_cont}>
           <AiOutlineCalendar />
-          <span id="date">{date}</span>
+          <span style={{ marginRight: "0.5%"}}>{date}</span>
         </div>
       </div>
     )

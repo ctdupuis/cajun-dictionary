@@ -1,6 +1,8 @@
 .num_likes, .like_action {
     border: 1px solid var(--red1);
     padding: 1%;
+    display: flex;
+    align-items: center;
 }
 
 .num_likes {
@@ -16,4 +18,8 @@
 .like_action:hover {
     background-color: var(--red2);
     cursor: pointer;
+}
+
+.like_icon {
+    margin-left: 0.1%;
 }
