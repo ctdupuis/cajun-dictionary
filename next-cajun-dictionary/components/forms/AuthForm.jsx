@@ -50,8 +50,6 @@ export default function AuthForm(props) {
 
     const handleSubmit = e => {
         e.preventDefault();
-        formData[formType].submitter();
-        // have a way to check for either register() or login()
     }
 
     const formTitle = (
@@ -86,7 +84,7 @@ export default function AuthForm(props) {
                     <PasswordEye showPassword={showPassword} handleClick={togglePasswordShow} />
                 </div>
 
-                <Button text={formType} handleClick={false} />
+                <Button text={formType} handleClick={formData[formType].submitter} />
             </form>
         </>
     )

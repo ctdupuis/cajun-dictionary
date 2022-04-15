@@ -1,12 +1,13 @@
 import classes from './modal.module.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import ModalContext from '../../context/ModalContext';
 
 export default function ModalHandler(props) {
 
-    const [isOpen, setIsOpen] = useState(false);
+    const { open, closeModal } = useContext(ModalContext);
 
     return (
-        isOpen ?
+        open ?
         <>
             <div className={classes.modal_wrapper}>
                 <div className={classes.modal}>
@@ -15,7 +16,7 @@ export default function ModalHandler(props) {
                     </div>
                 </div>
             </div>
-            <div className={classes.modal_bg}></div>
+            <div onClick={() => closeModal()} className={classes.modal_bg}></div>
         </>
         :
         <>{props.children}</>

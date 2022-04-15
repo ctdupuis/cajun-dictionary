@@ -2,9 +2,11 @@ import classes from './header.module.css';
 import Link from 'next/link';
 import {RiAccountBoxLine} from 'react-icons/ri';
 import {useRouter} from 'next/router';
+import { useContext } from 'react';
+import ModalContext from '../../../context/ModalContext';
 
 export default function Header() {
-  const router = useRouter();
+  const { openModal } = useContext(ModalContext);
 
   return (
     <header className="bg-gradient">
@@ -30,7 +32,7 @@ export default function Header() {
           <div className={classes.session_nav}>
             <button 
               className={classes.btn} 
-              onClick={() => router.replace("/auth")}
+              onClick={() => openModal()}
             >
               <RiAccountBoxLine />
               Login
