@@ -1,22 +1,22 @@
 import classes from './modal.module.css';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import ModalContext from '../../context/ModalContext';
 
 export default function ModalHandler(props) {
 
-    const { open, closeModal } = useContext(ModalContext);
+    const { component, setComponent } = useContext(ModalContext);
 
     return (
-        open ?
+        component ?
         <>
             <div className={classes.modal_wrapper}>
                 <div className={classes.modal}>
                     <div className={classes.modal_body}>
-                        {props.component}
+                        {component}
                     </div>
                 </div>
             </div>
-            <div onClick={() => closeModal()} className={classes.modal_bg}></div>
+            <div onClick={() => setComponent(false)} className={classes.modal_bg}></div>
         </>
         :
         <>{props.children}</>

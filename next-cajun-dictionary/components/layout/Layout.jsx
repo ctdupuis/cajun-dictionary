@@ -9,18 +9,16 @@ import ModalHandler from "./ModalHandler.jsx";
 export default function Layout(props) {
   return (
     <Fragment>
-        <Head>
-          <title>Cajun Dictionary</title>
-          <style>
-            @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Play:wght@400;700&display=swap')
-          </style>
-        </Head>
-        <Header />
-        <Nav />
-
-        <ModalHandler component={<AuthForm />}/>
-        {props.children}
- 
+      <Head>
+        <title>Cajun Dictionary</title>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Play:wght@400;700&display=swap')
+        </style>
+      </Head>
+      <Header />
+      <Nav />
+      <ModalHandler />
+      {props.children}
     </Fragment>
   )
 }
