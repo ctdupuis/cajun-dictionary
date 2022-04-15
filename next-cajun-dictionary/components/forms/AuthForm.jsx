@@ -57,43 +57,37 @@ export default function AuthForm(props) {
     const formTitle = (
         <div className={styles.control}>
             <h1 
-            className={formType === 'login' ? styles.active : styles.inactive} 
-            onClick={() => handleActiveType('login')}>
+                className={formType === 'login' ? styles.active : styles.inactive} 
+                onClick={() => handleActiveType('login')}>
                 Login
             </h1>
             <h1 
-            className={formType === 'register' ? styles.active : styles.inactive } 
-            onClick={() => handleActiveType('register')}>
+                className={formType === 'register' ? styles.active : styles.inactive } 
+                onClick={() => handleActiveType('register')}>
                 Register
             </h1>
         </div>
     )
 
     return(
-        <div className="wrapper">
-            <section className={styles.container_red}>
-                <div className="container bg-white">
+        <>
+            { formTitle }
 
-                { formTitle }
-
-                    <form onSubmit={handleSubmit} className={styles.form}>
-
-                        <div className={styles.form_group}>
-                            <label htmlFor='username'>Username</label>
-                            <input className={styles.input} type='text' name='username' onChange={handleChange} value={formData.username}/>
-                        </div>
-
-                        <div className={styles.form_group}>
-                            <label htmlFor='password'>Password</label>
-                            <input className={styles.input} type={showPassword} name='password' onChange={handleChange} value={formData.password}/>
-
-                            <PasswordEye showPassword={showPassword} handleClick={togglePasswordShow} />
-                        </div>
-
-                        <Button text={formType} handleClick={false} />
-                    </form>
+            <form onSubmit={handleSubmit} className={styles.form}>
+                <div className={styles.form_group}>
+                    <label htmlFor='username'>Username</label>
+                    <input className={styles.input} type='text' name='username' onChange={handleChange} value={formData.username}/>
                 </div>
-            </section>
-        </div>
+
+                <div className={styles.form_group}>
+                    <label htmlFor='password'>Password</label>
+                    <input className={styles.input} type={showPassword} name='password' onChange={handleChange} value={formData.password}/>
+
+                    <PasswordEye showPassword={showPassword} handleClick={togglePasswordShow} />
+                </div>
+
+                <Button text={formType} handleClick={false} />
+            </form>
+        </>
     )
 }

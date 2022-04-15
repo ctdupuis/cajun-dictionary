@@ -1,8 +1,9 @@
 .btn {
-    color: var(--red2);
-    background-color: whitesmoke;
+    color: whitesmoke;
+    background-color: var(--red1);
     border: none;
     transition: 0.5s;
+    padding: 0.5%;
 }
 
 .btn:hover {

@@ -1,5 +1,29 @@
+.container_red {
+    background-image: linear-gradient(90deg, var(--red1), var(--red2));
+    padding: 2%;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.control {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1%;
+}
+
+.active, .inactive {
+    border-radius: 5px;
+    padding: 1%;
+}
+
 .active {
-    border-bottom: 1px solid white;
+    color: whitesmoke;
+    background-color: var(--red1);
+}
+
+.inactive {
+    color: var(--red1);
+    background-color: whitesmoke;
 }
 
 .inactive:hover {
@@ -8,7 +32,7 @@
 }
 
 .active, .inactive {
-    margin: 1% 5%;
+    margin: 0 5%;
 }
 
 .form, .form_group {
@@ -33,3 +57,4 @@
     margin: 1%;
     /* padding: 2%; */
 }
+

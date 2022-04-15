@@ -31,7 +31,7 @@ export default function TermCard(props) {
   }
 
   return (
-    <section className="container bg-red1" style={{width: "45%"}}>
+    <section className="container bg-red1">
       {title}
       <div className="container bg-white">
         <h3>TERM NAME</h3>

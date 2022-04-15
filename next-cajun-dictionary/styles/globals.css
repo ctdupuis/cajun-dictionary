@@ -21,6 +21,7 @@ button, input {
 input { 
   outline: none;
   border-style: groove;
+  border-width: thin;
 }
 
 a {
@@ -38,7 +39,8 @@ section {
 }
 
 .wrapper {
-  padding: 2%;
+  display: flex;
+  justify-content: center;
 }
 
 .flex {
@@ -67,6 +69,7 @@ section {
 
 .container {
   padding: 2%;
+  width: 100%;
   color: whitesmoke;
   border-radius: 5px;
 }
