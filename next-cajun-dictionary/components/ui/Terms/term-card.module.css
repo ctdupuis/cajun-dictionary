@@ -2,6 +2,9 @@
     margin-bottom: 2%;
     border-bottom: 1px solid whitesmoke;
     font-size: larger;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .definition, .use_case {

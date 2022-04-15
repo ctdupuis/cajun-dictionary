@@ -3,9 +3,14 @@
     padding: 1%;
 }
 
+.num_likes {
+    border-radius: 5px 0 0 5px;
+}
+
 .like_action {
     background-color: var(--red1);
     color: whitesmoke;
+    border-radius: 0 5px 5px 0;
 }
 
 .like_action:hover {

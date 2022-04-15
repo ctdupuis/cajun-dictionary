@@ -1,5 +1,7 @@
 import LikeButton from '../LikeButton/LikeButton';
-import styles from './term-card.module.css'
+import styles from './term-card.module.css';
+import {AiTwotoneLike, AiOutlineCalendar} from 'react-icons/ai';
+
 
 export default function TermCard(props) {
 
@@ -8,15 +10,19 @@ export default function TermCard(props) {
   
   if (props.type === 'term-of-day') {
     title = (
-      <div className={styles.title + " flex space-bet"} style={{ alignItems: "center"}}>
+      <div className={styles.title} >
         <h3>Term of the Day</h3>
-        <span id="date">{date}</span>
+        <div style={{ display: "flex", alignItems: "center"}}>
+          <AiOutlineCalendar />
+          <span id="date">{date}</span>
+        </div>
       </div>
     )
   } else if (props.type === 'most-liked') {
     title = (
       <div className={styles.title}>
         <h3>Most Liked Term</h3>
+        <AiTwotoneLike />
       </div>
     )
   } else {

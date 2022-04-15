@@ -68,3 +68,24 @@
     color: whitesmoke;
     cursor: pointer;
 }
+
+.btn {
+    background-color: var(--red1);
+    width: 35%;
+    padding: 5%;
+    color: rgb(213, 212, 212);
+    border-color: rgb(213, 212, 212);
+    border-style: groove;
+    font-size: larger;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btn:hover {
+    background-color: var(--red2);
+    color: whitesmoke;
+    border-color: whitesmoke;
+    cursor: pointer;
+}

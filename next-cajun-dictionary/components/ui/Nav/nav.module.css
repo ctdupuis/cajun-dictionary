@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1%;
 }
 
 .nav a {
@@ -21,3 +22,25 @@
     padding: 1%;
     background-color: var(--red1);
 }
+
+.search {
+    outline: none;
+    width: 50%;
+    padding: 0.5% 0.5% 0.5% 2%;
+}
+
+.search_icon {
+    color: var(--red1);
+    margin-right: -2%;
+    z-index: 100;
+}
+
+.new_term_icon {
+    color:rgb(213, 212, 212);
+}
+
+.new_term_icon:hover {
+    cursor: pointer;
+    color: whitesmoke;
+}
+
