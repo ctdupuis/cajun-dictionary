@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
+    "jsonwebtoken": "^8.5.1",
     "next": "12.1.4",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",

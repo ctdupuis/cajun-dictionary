@@ -1,5 +1,35 @@
+.main_head {
+    display: flex;
+    padding: .5%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo_container {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    margin-left: 1%;
+}
+
 .session_nav {
     width: 15%;
+}
+
+.nav_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2.5%;
+}
+
+.nav_item a {
+    color: rgb(213, 212, 212);
+}
+
+.nav_item a:hover {
+    cursor: pointer;
+    color: whitesmoke;
 }
 
 .active {
@@ -18,7 +48,6 @@
 
 .logo {
     color: whitesmoke;
-    padding: .5%;
 }
 
 .username {
