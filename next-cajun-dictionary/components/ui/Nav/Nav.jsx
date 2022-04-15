@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import classes from './nav.module.css';
 import { useRouter } from 'next/router';
-import {FaSearch} from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 
 export default function Nav() {
     const [query, setQuery] = useState('');

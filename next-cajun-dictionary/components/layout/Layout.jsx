@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { Fragment } from "react";
-import AuthForm from "../forms/AuthForm.jsx";
 import Header from "../ui/Header/Header.jsx";
 import Nav from "../ui/Nav/Nav.jsx";
 import ModalHandler from "./ModalHandler.jsx";

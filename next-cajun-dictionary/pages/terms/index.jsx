@@ -21,7 +21,7 @@ export default function TermList(props) {
         })
   
         return(
-            <div className={styles.word_wrapper}>
+            <div className={styles.word_wrapper} key={letter}>
                 <div className={styles.list_title + " flex space-bet"} key={letter}>
                     <h4>{letter}</h4><h4>Submitted by</h4>
                 </div>
