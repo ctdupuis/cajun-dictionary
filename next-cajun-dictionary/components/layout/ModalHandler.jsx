@@ -1,6 +1,7 @@
 import classes from './modal.module.css';
 import { useContext } from 'react';
 import ModalContext from '../../context/ModalContext';
+import { AiOutlineClose } from 'react-icons/ai';
 
 export default function ModalHandler(props) {
 
@@ -12,6 +13,7 @@ export default function ModalHandler(props) {
             <div className={classes.modal_wrapper}>
                 <div className={classes.modal}>
                     <div className={classes.modal_body}>
+                    <AiOutlineClose className={classes.close} onClick={() => setComponent(undefined)} />
                         {component}
                     </div>
                 </div>

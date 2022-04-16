@@ -29,3 +29,13 @@
     padding: 1%;
     height: 100%;
 }
+
+.close {
+    float: right;
+    border-radius: 100px;
+}
+
+.close:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
