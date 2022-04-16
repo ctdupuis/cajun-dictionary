@@ -1,0 +1,19 @@
+.menu {
+    z-index: 100;
+    position: fixed;
+    margin-bottom: -100px;
+    margin-right: 3%;
+    width: 10%;
+    background-color: var(--red2);
+    border-radius: 5px;
+    text-align: right;
+    box-shadow: 2px 2px 1px black;
+}
+
+.item {
+    list-style-type: none;
+    padding: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

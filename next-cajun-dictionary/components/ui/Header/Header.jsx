@@ -8,7 +8,7 @@ import NewTermForm from '../../forms/Terms/NewTerm';
 import {RiAccountBoxLine} from 'react-icons/ri';
 import {MdLogout, MdOutlinePersonOutline} from 'react-icons/md';
 import { BsPerson} from 'react-icons/bs'
-import ProfileControl from '../ProfileDropdown/ProfileControl';
+import ProfileControl from '../ProfileControl/control/ProfileControl';
 
 export default function Header() {
   const { setComponent } = useContext(ModalContext);
