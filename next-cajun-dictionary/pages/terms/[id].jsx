@@ -1,58 +1,24 @@
 import axios from "axios";
-import { getAllTerms } from "../../helpers/api-util";
-import styles from '../../components/ui/Terms/term-card.module.css';
-import LikeButton from "../../components/ui/LikeButton/LikeButton";
+import { getAllTerms, getTermById } from "../../helpers/api-util";
+import TermCard from '../../components/ui/Terms/TermCard';
+import { API_STRING } from "../../helpers/constants";
 
 export default function TermShowPage({ term }) {
 
-  return (
-    <div className='wrapper'>
-      <section className='container bg-red1'>
-        <div className={styles.show + ' container bg-white'}>
-
-          <div className={styles.title + " flex space-bet"}>
-            <div className='flex col'>
-              <h3>{term.name}</h3>
-              <span>pronounced {term.pronunciation}</span>
-            </div>
-            <span>Submitted by {term.username}</span>
-          </div>
-
-          <div className={styles.definition}>
-            <p>
-              <strong>Definition:</strong>
-            </p>
-
-            <p>
-              {term.definition}
-            </p>
-          </div>
-
-          <div className={styles.use_case} >
-            <p>
-              <strong>Use Case:</strong>
-            </p>
-            <p>
-              {term.use_case}
-            </p>
-          </div>
-
-          <LikeButton />
-        </div>
-      </section>
-    </div>
-  )
+  return (<div className="wrapper">
+    <TermCard term={term} />
+  </div>)
+    
 }
 
 export async function getStaticProps(context) {
-  const term_id = context.params.id;
+  const term_id = +context.params.id;
 
-  const res = await axios.get(`http://localhost:3000/api/terms/${term_id}`)
-  const data = res.data.term;
+  const term = await getTermById(term_id)
 
   return {
-    props: { term: data },
-    revalidate: 30
+    props: { term: term },
+    revalidate: 100
   }
 }
 
