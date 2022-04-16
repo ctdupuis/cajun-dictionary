@@ -8,11 +8,12 @@ export const AuthProvider = ({ children }) => {
     const [error, setError] = useState(null);
 
     const register = async(user) => {
-        console.log(user)
+        console.log('Register submitted')
     }
 
     const login = async(user) => {
         setUser(user)
+        console.log('Login submitted')
     }
 
     const logout = async() => {

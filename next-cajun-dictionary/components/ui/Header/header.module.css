@@ -50,25 +50,6 @@
     color: whitesmoke;
 }
 
-.username {
-    display: block;
-    font-size: larger;
-}
-
-#logout {
-    background: none;
-    color: rgb(213, 212, 212);
-    border: none;
-    font-family: 'Permanent Marker', cursive;
-    font-family: 'Play', sans-serif;
-    font-size: larger;
-}
-
-#logout:hover {
-    color: whitesmoke;
-    cursor: pointer;
-}
-
 .btn {
     background-color: var(--red1);
     width: 35%;
@@ -77,7 +58,7 @@
     border-color: rgb(213, 212, 212);
     border-style: groove;
     font-size: larger;
-    width: 45%;
+    width: 55%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -88,4 +69,19 @@
     color: whitesmoke;
     border-color: whitesmoke;
     cursor: pointer;
+}
+
+.icon {
+    color: whitesmoke;
+}
+
+.profile_ctrl {
+    display: flex;
+    align-items: center;
+}
+
+.profile_icon {
+    height: 100%;
+    width: 18%;
+    color: rgb(213, 212, 212);
 }

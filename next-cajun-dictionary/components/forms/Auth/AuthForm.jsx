@@ -1,14 +1,17 @@
-import { useState } from "react";
-import Button from "../../components/ui/Button/Button";
-import PasswordEye from "../../components/ui/Icons/PasswordEye";
-import styles from '../../styles/auth-form.module.css'
+import { useState, useContext } from "react";
+import AuthContext from "../../../context/AuthContext";
+import ModalContext from "../../../context/ModalContext";
+import Button from "../../ui/Button/Button";
+import PasswordEye from "../../ui/Icons/PasswordEye";
+import styles from './auth-form.module.css';
+
 
 export default function AuthForm(props) {
     const [formType, setFormType] = useState('login');
     const [showPassword, setShowPassword] = useState('password');
 
-    const login = () => console.log('login')
-    const register = () => console.log('register')
+    const { login, register } = useContext(AuthContext);
+    const { setComponent } = useContext(ModalContext);
 
     const [formData, setFormData] = useState({
         data: {
@@ -16,7 +19,7 @@ export default function AuthForm(props) {
             password: ""
         },
         login: {
-            submitter: login,
+            submitter: () => login({ name: 'Cody'}),
             active: true
         },
         register: {
@@ -44,24 +47,21 @@ export default function AuthForm(props) {
         })
     }
 
-    const handleActiveType = type => {
-        setFormType(type);
-    }
-
     const handleSubmit = e => {
         e.preventDefault();
+        setComponent(undefined);
     }
 
     const formTitle = (
         <div className={styles.control}>
             <h1 
                 className={formType === 'login' ? styles.active : styles.inactive} 
-                onClick={() => handleActiveType('login')}>
+                onClick={() => setFormType('login')}>
                 Login
             </h1>
             <h1 
                 className={formType === 'register' ? styles.active : styles.inactive } 
-                onClick={() => handleActiveType('register')}>
+                onClick={() => setFormType('register')}>
                 Register
             </h1>
         </div>
