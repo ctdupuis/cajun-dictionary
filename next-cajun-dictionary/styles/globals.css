@@ -73,6 +73,11 @@ section {
   width: 100%;
   color: whitesmoke;
   border-radius: 5px;
+  opacity: 0.95;
+}
+
+.opaque {
+  opacity: 0.96;
 }
 
 .bg-red1 {

@@ -13,6 +13,7 @@ export default function Layout(props) {
         <style>
           @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Play:wght@400;700&display=swap')
         </style>
+        <link rel="shortcut icon" href="/images/logo.png" />
       </Head>
       <Header />
       <Nav />

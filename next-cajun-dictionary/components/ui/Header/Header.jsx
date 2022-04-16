@@ -28,7 +28,7 @@ export default function Header() {
                 <Link href="/terms">All Terms</Link>
             </div>
             <div className={classes.nav_item}>
-                <a href="/about">About</a>
+                <Link href="/about">About</Link>
             </div>
 
             { user ? 
