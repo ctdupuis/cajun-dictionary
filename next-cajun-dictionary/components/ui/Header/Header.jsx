@@ -4,10 +4,11 @@ import { useContext } from 'react';
 import ModalContext from '../../../context/ModalContext';
 import AuthContext from '../../../context/AuthContext'
 import AuthForm from '../../forms/Auth/AuthForm';
+import NewTermForm from '../../forms/Terms/NewTerm';
 import {RiAccountBoxLine} from 'react-icons/ri';
 import {MdLogout, MdOutlinePersonOutline} from 'react-icons/md';
-import NewTermForm from '../../forms/Terms/NewTerm';
 import { BsPerson} from 'react-icons/bs'
+import ProfileControl from '../ProfileDropdown/ProfileControl';
 
 export default function Header() {
   const { setComponent } = useContext(ModalContext);
@@ -49,7 +50,7 @@ export default function Header() {
                 <MdLogout className={classes.icon} />
                 Logout
               </button>
-              <BsPerson className={classes.profile_icon} />
+              <ProfileControl />
             </div>
             :
             <button 

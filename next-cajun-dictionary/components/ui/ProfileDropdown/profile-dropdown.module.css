@@ -1,0 +1,19 @@
+.icon_container {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    border-radius: 100px;
+    padding: 5%;
+    justify-content: center;
+}
+
+.icon_container:hover {
+    background-color: var(--red2);
+    cursor: pointer;
+}
+
+.profile_icon {
+    height: 100%;
+    width: 50%;
+    color: rgb(213, 212, 212);
+}

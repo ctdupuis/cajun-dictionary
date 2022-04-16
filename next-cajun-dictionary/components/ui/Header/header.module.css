@@ -52,13 +52,12 @@
 
 .btn {
     background-color: var(--red1);
-    width: 35%;
-    padding: 5%;
+    padding: 3%;
     color: rgb(213, 212, 212);
     border-color: rgb(213, 212, 212);
     border-style: groove;
     font-size: larger;
-    width: 55%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -78,10 +77,6 @@
 .profile_ctrl {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 }
 
-.profile_icon {
-    height: 100%;
-    width: 18%;
-    color: rgb(213, 212, 212);
-}
