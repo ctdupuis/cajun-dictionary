@@ -84,4 +84,13 @@ export const apiRegister = async({ username, password }) => {
 
 }
 
+export const getUserById = async(userId) => {
+    const res = await db.query(
+        `
+        select username from users where user_id='${userId}';
+        `
+    )
+    return res[0].pop();
+}
+
 // LIKES
