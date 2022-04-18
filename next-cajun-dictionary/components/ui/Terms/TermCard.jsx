@@ -56,7 +56,7 @@ export default function TermCard({ term, type }) {
           </p>
         </div>
 
-        <LikeButton likes={term.likes} />
+        <LikeButton termId={term.term_id} />
       </div>
 
     </section>

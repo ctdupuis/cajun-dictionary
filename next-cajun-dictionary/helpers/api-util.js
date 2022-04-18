@@ -27,14 +27,14 @@ export const getTermById = async(id) => {
         `
     )
     const term = res[0].pop();
-    const likes = await getTermLikes(term.term_id);
+    const likes = await getLikeCount(term.term_id);
     let likeObj = { ...likes};
     likeObj['0'][0]['likes'] = parseInt(likeObj['0'][0]['likes']);
     const termObject = await Object.assign(term, likeObj['0'][0]);
     return termObject;
 }
 
-export const getTermLikes = async(termId) => {
+export const getLikeCount = async(termId) => {
     const data = await db.query(
         `
         select count(*) as likes from likes
@@ -61,10 +61,6 @@ export const getMostLikedTerm = async() => {
 
 // AUTH
 
-export const apiAuthCheck = async() => {
-    
-}
-
 export const apiLogin = async({ username, password }) => {
     const res = await db.query(
         `
@@ -72,7 +68,7 @@ export const apiLogin = async({ username, password }) => {
         `
     )
     const existingUser = res[0].pop();
-    const authenticated = bcrypt.compareSync(password, existingUser.password)
+    const authenticated = bcrypt.compareSync(password, existingUser.password);
     if (authenticated) {
         return existingUser
     } else {
@@ -87,10 +83,37 @@ export const apiRegister = async({ username, password }) => {
 export const getUserById = async(userId) => {
     const res = await db.query(
         `
-        select username from users where user_id='${userId}';
+        select user_id, username from users where user_id='${userId}';
         `
     )
     return res[0].pop();
 }
 
 // LIKES
+
+export const getLikesByTerm = async(termId) => {
+    const res = await db.query(`
+    select * from likes where term_id=${termId};
+    `)
+    return res[0];
+}
+
+export const createLike = async(data) => {
+    const { user_id, term_id } = data;
+    const res = await db.query(
+        `
+        insert into likes (user_id, term_id)
+        values '${user_id}', ${term_id};
+        `
+    )
+    return res[0]
+}
+
+export const removeLike = async(user_id, term_id) => {
+    const res = await db.query(
+        `
+        delete from likes where user_id='${user_id}' and term_id=${term_id};
+        `
+    )
+    return res[0]
+}
