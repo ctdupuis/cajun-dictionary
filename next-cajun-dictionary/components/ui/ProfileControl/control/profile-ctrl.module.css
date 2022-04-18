@@ -10,6 +10,7 @@
 .icon_container:hover {
     background-color: var(--red2);
     cursor: pointer;
+
 }
 
 .profile_icon {

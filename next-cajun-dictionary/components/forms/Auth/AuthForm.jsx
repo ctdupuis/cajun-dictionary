@@ -19,7 +19,7 @@ export default function AuthForm(props) {
             password: ""
         },
         login: {
-            submitter: () => login({ name: 'Cody'}),
+            submitter: () => login({ username: 'ctdupuis'}),
             active: true
         },
         register: {

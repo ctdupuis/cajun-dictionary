@@ -45,4 +45,16 @@ export const getTermLikes = async(termId) => {
 
 // AUTH
 
+export const apiAuthCheck = async() => {
+    
+}
+
+export const apiLogin = async({ email, password }) => {
+
+}
+
+export const apiRegister = async({ email, password }) => {
+
+}
+
 // LIKES

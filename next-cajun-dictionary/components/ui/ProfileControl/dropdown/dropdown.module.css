@@ -1,7 +1,7 @@
 .menu {
     z-index: 100;
     position: fixed;
-    margin-bottom: -100px;
+    margin-bottom: -160px;
     margin-right: 3%;
     width: 10%;
     background-color: var(--red2);
@@ -16,4 +16,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+}
+
+.item a {
+    height: 100%;
+    width: 100%;
+}
+
+.item:hover {
+    background-color: var(--red1);
+}
+
+.item:first-child:hover {
+    background-color: var(--red2);
+    cursor: default;
+}
+
+.username {
+    color: whitesmoke;
+    height: 100%;
+    width: 100%;
 }

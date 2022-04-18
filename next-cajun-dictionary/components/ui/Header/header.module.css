@@ -12,9 +12,6 @@
     margin-left: 1%;
 }
 
-.session_nav {
-    width: 15%;
-}
 
 .nav_item {
     display: flex;
@@ -34,6 +31,10 @@
 
 .active {
     background-color: var(--red1);
+}
+
+.session_nav {
+    width: 15%;
 }
 
 .session_nav a {
