@@ -1,4 +1,5 @@
 import db from './db';
+const bcrypt = require('bcrypt');
 
 // TERMS
 export const getAllTerms = async() => {
@@ -43,17 +44,43 @@ export const getTermLikes = async(termId) => {
     return data;
 }
 
+export const getMostLikedTerm = async() => {
+    const res = await db.query(
+        `
+        select count(*) as likes, t.term_id, t.name, t.pronunciation, t.definition, t.use_case
+        from terms t
+        join likes l
+        on t.term_id = l.term_id
+        group by t.term_id, t.name, t.pronunciation, t.definition, t.use_case
+        order by likes desc
+        limit 1
+        `
+    )
+    return res[0];
+}
+
 // AUTH
 
 export const apiAuthCheck = async() => {
     
 }
 
-export const apiLogin = async({ email, password }) => {
-
+export const apiLogin = async({ username, password }) => {
+    const res = await db.query(
+        `
+        select * from users where username='${username}';
+        `
+    )
+    const existingUser = res[0].pop();
+    const authenticated = bcrypt.compareSync(password, existingUser.password)
+    if (authenticated) {
+        return existingUser
+    } else {
+        return { error: 'USERNAME OR PASSWORD IS INCORRECT'}
+    }
 }
 
-export const apiRegister = async({ email, password }) => {
+export const apiRegister = async({ username, password }) => {
 
 }
 
