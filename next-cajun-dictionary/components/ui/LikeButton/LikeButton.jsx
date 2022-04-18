@@ -1,16 +1,10 @@
 import styles from './like-btn.module.css';
 import {AiOutlineLike, AiTwotoneLike} from 'react-icons/ai';
-import { useEffect, useState } from 'react';
-import { API_STRING } from '../../../helpers/constants';
-import axios from 'axios';
+import { useState } from 'react';
+
 
 export default function LikeButton({ likes }) {
   const [liked, setLiked] = useState(false);
-  const [count, setCount] = useState(0);
-
-  const getCount = async(id) => {
-    const res = await axios.get(`${API_STRING}/terms/${id}`)
-  }
 
   const handleClick = () => {
     setLiked(!liked);
@@ -31,7 +25,3 @@ export default function LikeButton({ likes }) {
     </div>
   )
 }
-
-// export async function getStaticProps(context) {
-//   const count = await getTermLikes(context.params.id)
-// }
