@@ -15,7 +15,6 @@ export const AuthProvider = ({ children }) => {
 
     const login = async(user) => {
         const res = await axios.post(`${API_STRING}/auth/login`, user);
-        console.log(res.data)
         if (res.error) {
             setError(res.error)
         } else {
