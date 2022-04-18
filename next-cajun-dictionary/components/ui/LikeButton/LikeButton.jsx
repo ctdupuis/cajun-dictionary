@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { API_STRING } from '../../../helpers/constants';
 import axios from 'axios';
 
-export default function LikeButton({ termId }) {
+export default function LikeButton({ likes }) {
   const [liked, setLiked] = useState(false);
   const [count, setCount] = useState(0);
 
@@ -18,7 +18,7 @@ export default function LikeButton({ termId }) {
 
   return (
     <div className="flex center-just">
-        <div className={styles.num_likes}>{count}</div>
+        <div className={styles.num_likes}>{likes}</div>
         <div 
           className={styles.like_action}  
           onClick={handleClick}>      

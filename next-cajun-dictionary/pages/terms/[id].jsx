@@ -1,7 +1,6 @@
-import axios from "axios";
 import { getAllTerms, getTermById } from "../../helpers/api-util";
 import TermCard from '../../components/ui/Terms/TermCard';
-import { API_STRING } from "../../helpers/constants";
+
 
 export default function TermShowPage({ term }) {
 
@@ -14,7 +13,7 @@ export default function TermShowPage({ term }) {
 export async function getStaticProps(context) {
   const term_id = +context.params.id;
 
-  const term = await getTermById(term_id)
+  const term = await getTermById(term_id);
 
   return {
     props: { term: term },

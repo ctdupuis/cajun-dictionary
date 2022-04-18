@@ -1,5 +1,6 @@
 import db from './db';
 
+// TERMS
 export const getAllTerms = async() => {
     const res = await db.query(
       `
@@ -25,24 +26,23 @@ export const getTermById = async(id) => {
         `
     )
     const term = res[0].pop();
-    const likes = await db.query(`
-    select count(*) as likes from likes
-    where term_id=${term.term_id};
-    `);
-    console.log('THIS IS THE LIKES ===>', likes)
-    const termObject = Object.assign({}, term, {likes: likes})
-    console.log("TERM OBJECT ===> ", termObject['likes'])
-    return termObject
+    const likes = await getTermLikes(term.term_id);
+    let likeObj = { ...likes};
+    likeObj['0'][0]['likes'] = parseInt(likeObj['0'][0]['likes']);
+    const termObject = await Object.assign(term, likeObj['0'][0]);
+    return termObject;
 }
 
 export const getTermLikes = async(termId) => {
-    const term = await getTermById(termId);
-    const { term_id } = term;
     const data = await db.query(
         `
         select count(*) as likes from likes
-        where term_id=${term_id};
+        where term_id=${termId};
         `
     )
-    return data[0].pop()
+    return data;
 }
+
+// AUTH
+
+// LIKES
