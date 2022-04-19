@@ -29,9 +29,7 @@ export const getTermById = async(id) => {
     const term = res[0].pop();
     const likes = await getLikesByTerm(term.term_id);
     let likeObj = { likes: [...likes]};
-    // likeObj['0'][0]['likes'] = parseInt(likeObj['0'][0]['likes']);
     const termObject = await Object.assign(term, likeObj);
-    console.log(termObject)
     return termObject;
 }
 
@@ -57,7 +55,11 @@ export const getMostLikedTerm = async() => {
         limit 1
         `
     )
-    return res[0];
+    const term = res[0].pop();
+    const likes = await getLikesByTerm(term.term_id);
+    let likeObj = { likes: [...likes] };
+    const termObject = await Object.assign(term, likeObj);
+    return termObject;
 }
 
 // AUTH

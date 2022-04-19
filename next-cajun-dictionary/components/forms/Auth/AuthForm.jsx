@@ -15,10 +15,6 @@ export default function AuthForm() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("");
 
-
-
- 
-
     const togglePasswordShow = () => {
        if (showPassword === 'password') {
             setShowPassword('text')
