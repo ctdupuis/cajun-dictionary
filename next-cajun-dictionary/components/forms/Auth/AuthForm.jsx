@@ -23,11 +23,6 @@ export default function AuthForm() {
        }
     }
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        setPassword("")
-    }
-
     const formTitle = (
         <div className={styles.control}>
             <h1 
@@ -49,7 +44,7 @@ export default function AuthForm() {
         <>
             { formTitle }
 
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <form onSubmit={(e) => e.preventDefault()} className={styles.form}>
                 <div className={styles.form_group}>
                     <label htmlFor='username'>Username</label>
                     <input className={styles.input} type='text' name='username' onChange={(e) => setUsername(e.target.value)} value={username}/>

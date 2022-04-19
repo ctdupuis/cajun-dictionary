@@ -1,17 +1,11 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import TermCard from '../components/ui/Terms/TermCard';
 import AuthContext from '../context/AuthContext';
-import { getAllTerms, getMostLikedTerm } from '../helpers/api-util';
-import moment from 'moment';
+import { getMostLikedTerm, getTermById } from '../helpers/api-util';
 
-export default function Home({ terms, mostLiked }) {
+export default function Home({ termOfTheDay, mostLiked }) {
   const { user, login, logout } = useContext(AuthContext);
-  const [termIdx, setTermIdx] = useState(0);
-
-  const termOfTheDay = terms[termIdx];
-
-  let max = terms.length || 30
-
+  
   return (
     <div className="wrapper">
       <TermCard term={termOfTheDay} type={'term-of-day'} />
@@ -21,8 +15,8 @@ export default function Home({ terms, mostLiked }) {
 }
 
 export async function getStaticProps() {
-  const terms = await getAllTerms();
+  const termOfTheDay = await getTermById(1);
   const mostLiked = await getMostLikedTerm();
 
-  return { props: { terms, mostLiked }}
+  return { props: { termOfTheDay, mostLiked }}
 }

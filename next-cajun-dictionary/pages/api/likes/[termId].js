@@ -15,7 +15,6 @@ export default async function handler(req, res) {
             let token = req.headers.authorization.split(" ")[1];
             let user_id = jwt.verify(token, SECRET);
             let deletion = await removeLike(user_id, term_id);
-
-            res.json({ deleted: true })
+            res.json({ deleted: true, likes: deletion })
     }
 }

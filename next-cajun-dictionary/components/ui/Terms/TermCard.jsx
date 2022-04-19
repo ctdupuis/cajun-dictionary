@@ -14,17 +14,18 @@ export default function TermCard({ term, type }) {
   let date = moment().format("MM[/]DD[/]YYYY");
 
   const like = () => {
-    axios.post(`${API_STRING}/likes/new`, { term_id: term.term_id, user_id: user.user_id }).then(res => console.log(res.data))
+    axios.post(`${API_STRING}/likes/new`, { term_id: term.term_id, user_id: user.user_id }).then(res => updateLikes(res.data.likes))
   }
 
   const unlike = () => {
     let token = null;
     if (user) { token = localStorage.getItem('token') }
-    axios.delete(`${API_STRING}/likes/${term.term_id}`, { headers: { Authorization: 'Bearer ' + token } }).then(res => console.log(res.data))
+    axios.delete(`${API_STRING}/likes/${term.term_id}`, { headers: { Authorization: 'Bearer ' + token } }).then(res => updateLikes(res.data.likes))
   }
 
   const updateLikes = likeObj => {
-
+    console.log("likeObj =>", likeObj)
+    term.likes = likeObj;
   }
   
   if (type === 'term-of-day') {
@@ -60,7 +61,7 @@ export default function TermCard({ term, type }) {
             <strong>Definition:</strong>
           </p>
           <p>
-            {term.definition}
+            {termFormat(term.definition)}
           </p>
         </div>
 

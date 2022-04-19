@@ -2,6 +2,7 @@ import db from './db';
 const bcrypt = require('bcrypt');
 
 // TERMS
+
 export const getAllTerms = async() => {
     const res = await db.query(
       `
@@ -110,7 +111,8 @@ export const createLike = async(user_id, term_id) => {
         values ('${user_id}', ${term_id});
         `
     )
-    return res[0];
+    let likes = await getLikesByTerm(term_id)
+    return likes;
 }
 
 export const removeLike = async(user_id, term_id) => {
@@ -119,5 +121,6 @@ export const removeLike = async(user_id, term_id) => {
         delete from likes where user_id='${user_id}' and term_id=${term_id};
         `
     )
-    return res[0];
+    let likes = await getLikesByTerm(term_id)
+    return likes;
 }

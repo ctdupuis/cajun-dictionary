@@ -24,10 +24,4 @@ export const TermProvider = ({ children }) => {
     )
 }
 
-export async function getStaticProps(context) {
-    const terms = await getAllTerms();
-
-
-}
-
 export default TermContext;
