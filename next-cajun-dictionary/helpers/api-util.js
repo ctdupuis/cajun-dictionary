@@ -27,10 +27,11 @@ export const getTermById = async(id) => {
         `
     )
     const term = res[0].pop();
-    const likes = await getLikeCount(term.term_id);
-    let likeObj = { ...likes};
-    likeObj['0'][0]['likes'] = parseInt(likeObj['0'][0]['likes']);
-    const termObject = await Object.assign(term, likeObj['0'][0]);
+    const likes = await getLikesByTerm(term.term_id);
+    let likeObj = { likes: [...likes]};
+    // likeObj['0'][0]['likes'] = parseInt(likeObj['0'][0]['likes']);
+    const termObject = await Object.assign(term, likeObj);
+    console.log(termObject)
     return termObject;
 }
 
@@ -98,12 +99,11 @@ export const getLikesByTerm = async(termId) => {
     return res[0];
 }
 
-export const createLike = async(data) => {
-    const { user_id, term_id } = data;
+export const createLike = async(user_id, term_id) => {
     const res = await db.query(
         `
         insert into likes (user_id, term_id)
-        values '${user_id}', ${term_id};
+        values ('${user_id}', ${term_id});
         `
     )
     return res[0]

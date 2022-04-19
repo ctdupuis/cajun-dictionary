@@ -1,14 +1,27 @@
 import LikeButton from '../LikeButton/LikeButton';
+import moment from 'moment';
+import axios from 'axios';
+import AuthContext from '../../../context/AuthContext';
+import { useContext } from 'react';
+import { API_STRING } from '../../../helpers/constants';
+import {termFormat} from '../../../helpers/formatting';
 import styles from './term-card.module.css';
 import {AiTwotoneLike, AiOutlineCalendar} from 'react-icons/ai';
-import moment from 'moment';
-import {termFormat} from '../../../helpers/formatting';
-
 
 export default function TermCard({ term, type }) {
-
+  const { user } = useContext(AuthContext);
   let title;
   let date = moment().format("MM[/]DD[/]YYYY");
+
+  const like = () => {
+    axios.post(`${API_STRING}/likes/new`, { term_id: term.term_id, user_id: user.user_id }).then(res => console.log(res.data))
+  }
+
+  const unlike = () => {
+    let token = null;
+    if (user) { token = localStorage.getItem('token') }
+    axios.delete(`${API_STRING}/likes/${term.term_id}`, { headers: { Authorization: 'Bearer ' + token } }).then(res => console.log(res.data))
+  }
   
   if (type === 'term-of-day') {
     title = (
@@ -56,7 +69,7 @@ export default function TermCard({ term, type }) {
           </p>
         </div>
 
-        <LikeButton termId={term.term_id} />
+        <LikeButton likes={term.likes} likeFn={like} unlikeFn={unlike} user={user} />
       </div>
 
     </section>

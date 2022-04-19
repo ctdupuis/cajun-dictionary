@@ -1,28 +1,8 @@
 import styles from './like-btn.module.css';
 import {AiOutlineLike, AiTwotoneLike} from 'react-icons/ai';
-import { useEffect, useState, useContext } from 'react';
-import AuthContext from '../../../context/AuthContext'
-import axios from 'axios';
-import { API_STRING } from '../../../helpers/constants';
 
-export default function LikeButton({ termId }) {
-  const { user } = useContext(AuthContext);
-  const [likes, setLikes] = useState([]);
-
+export default function LikeButton({ likes, likeFn, unlikeFn, user }) {
   let likedByUser = null;
-
-  useEffect(() => {
-    axios.get(`${API_STRING}/likes/${termId}`)
-    .then(res => setLikes(res.data))
-  }, [])
-
-  const like = () => {
-    axios.post(`${API_STRING}/likes/new`, { term_id: termId, user_id: user.user_id }).then(res => console.log(res.data))
-  }
-
-  const unlike = () => {
-    axios.delete(`${API_STRING}/likes/${termId}`, { user_id: user.user_id}).then(res => console.log(res.data))
-  }
 
   let targetLike;
 
@@ -33,10 +13,10 @@ export default function LikeButton({ termId }) {
 
   return (
     <div className="flex center-just">
-        <div className={styles.num_likes}>{likes.length}</div>
+        <div className={styles.num_likes}>{ likes ? likes.length : 0}</div>
         <div 
           className={styles.like_action}  
-          onClick={likedByUser ? unlike : like}>      
+          onClick={likedByUser ? unlikeFn : likeFn}>      
           { likedByUser ? 
             <AiTwotoneLike /> 
             : 
