@@ -20,6 +20,28 @@
     cursor: pointer;
 }
 
+.disabled, .disabled:hover {
+    color: black;
+    background-color: grey;
+    cursor: not-allowed;
+    border: 1px solid var(--red1);
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    border-radius: 0 5px 5px 0;
+}
+
+.disabled_message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+}
+
 .like_icon {
     margin-left: 0.1%;
+}
+
+.link:hover {
+    text-decoration: underline;
 }

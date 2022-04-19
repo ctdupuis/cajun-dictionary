@@ -74,7 +74,7 @@ export default function TermCard({ term, type }) {
           </p>
         </div>
 
-        <LikeButton likes={term.likes} likeFn={like} unlikeFn={unlike} user={user} />
+        <LikeButton likes={term.likes} likeFn={like} unlikeFn={unlike} user={user} disabled={!user ? true : false} />
       </div>
 
     </section>
