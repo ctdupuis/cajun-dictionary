@@ -2,12 +2,11 @@
     color: whitesmoke;
     background-color: var(--red1);
     border: none;
-    transition: 0.5s;
-    padding: 0.5%;
+    padding: 1%;
 }
 
 .btn:hover {
     color: whitesmoke;
-    background-image: radial-gradient(var(--red2), var(--red1)) ;
+    background-color: var(--red2);
     cursor: pointer;
 }

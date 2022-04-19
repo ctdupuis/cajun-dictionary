@@ -93,9 +93,11 @@ export const getUserById = async(userId) => {
 // LIKES
 
 export const getLikesByTerm = async(termId) => {
-    const res = await db.query(`
-    select * from likes where term_id=${termId};
-    `)
+    const res = await db.query(
+        `
+        select * from likes where term_id=${termId};
+        `
+    )
     return res[0];
 }
 
@@ -106,7 +108,7 @@ export const createLike = async(user_id, term_id) => {
         values ('${user_id}', ${term_id});
         `
     )
-    return res[0]
+    return res[0];
 }
 
 export const removeLike = async(user_id, term_id) => {
@@ -115,5 +117,5 @@ export const removeLike = async(user_id, term_id) => {
         delete from likes where user_id='${user_id}' and term_id=${term_id};
         `
     )
-    return res[0]
+    return res[0];
 }

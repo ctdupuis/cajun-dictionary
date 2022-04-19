@@ -39,22 +39,38 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.form {
     flex-direction: column;
 }
 
 .form_group {
     margin: 1%;
+    width: 100%;
 }
 
 .form_group label {
-    margin-right: .5%;
+    margin-left: 12.5%;
+    align-self: flex-start;
+    color: var(--red1);
 }
 
 .input {
     margin: 1%;
-    /* padding: 2%; */
+    padding: 1%;
+    border: none;
+    width: 75%;
+    background-color: lightgrey;
 }
 
+.input:focus {
+    background-color: whitesmoke;
+    box-shadow: 0px 5px 10px var(--red1);
+    transition: 0.3s;
+    color: var(--red2);
+}
+
+.btn_container {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

@@ -5,26 +5,17 @@ import Button from "../../ui/Button/Button";
 import PasswordEye from "../../ui/Icons/PasswordEye";
 import styles from './auth-form.module.css';
 
-export default function AuthForm(props) {
+export default function AuthForm() {
     const [formType, setFormType] = useState('login');
     const [showPassword, setShowPassword] = useState('password');
 
-    const { login, register } = useContext(AuthContext);
+    const { login, register, user } = useContext(AuthContext);
     const { setComponent } = useContext(ModalContext);
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("");
 
-    const [formData, setFormData] = useState({
-        login: {
-            submitter: (username, password) => login({username, password}),
-            active: true
-        },
-        register: {
-            submitter: () => register(userdata),
-            active: false
-        }
-    })
+
 
  
 
@@ -36,16 +27,9 @@ export default function AuthForm(props) {
        }
     }
 
-    const handleChange = e => {
-        setUserdata({
-            ...userdata,
-            [e.target.name]: e.target.value
-        })
-    }
-
     const handleSubmit = e => {
         e.preventDefault();
-        setComponent(undefined);
+        setPassword("")
     }
 
     const formTitle = (
@@ -63,6 +47,8 @@ export default function AuthForm(props) {
         </div>
     )
 
+    if (user) { setComponent(undefined) }
+
     return(
         <>
             { formTitle }
@@ -70,17 +56,26 @@ export default function AuthForm(props) {
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.form_group}>
                     <label htmlFor='username'>Username</label>
-                    <input className={styles.input} type='text' name='username' onChange={(e) => setUsername(e.target.value)} value={formData.username}/>
+                    <input className={styles.input} type='text' name='username' onChange={(e) => setUsername(e.target.value)} value={username}/>
                 </div>
 
                 <div className={styles.form_group}>
                     <label htmlFor='password'>Password</label>
-                    <input className={styles.input} type={showPassword} name='password' onChange={(e) => setPassword(e.target.value)} value={formData.password}/>
+                    <input className={styles.input} type={showPassword} name='password' onChange={(e) => setPassword(e.target.value)} value={password}/>
 
-                    <PasswordEye showPassword={showPassword} handleClick={togglePasswordShow} />
                 </div>
+                
+                <PasswordEye showPassword={showPassword} handleClick={togglePasswordShow} />
 
-                <Button text={formType} handleClick={formType === 'login' ? () => login({username, password}) : () => register({username, password})} />
+                <div className={styles.btn_container}>
+                    <Button 
+                        text={formType} 
+                        handleClick={ formType === 'login' ? 
+                        () => login({username, password}) 
+                        : 
+                        () => register({username, password}) } 
+                    />
+                </div>
             </form>
         </>
     )

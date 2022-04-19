@@ -22,6 +22,10 @@ export default function TermCard({ term, type }) {
     if (user) { token = localStorage.getItem('token') }
     axios.delete(`${API_STRING}/likes/${term.term_id}`, { headers: { Authorization: 'Bearer ' + token } }).then(res => console.log(res.data))
   }
+
+  const updateLikes = likeObj => {
+
+  }
   
   if (type === 'term-of-day') {
     title = (
