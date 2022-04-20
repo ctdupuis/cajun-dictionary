@@ -12,7 +12,7 @@ export default function AuthForm() {
     const { login, register, user } = useContext(AuthContext);
     const { setComponent } = useContext(ModalContext);
 
-    const [username, setUsername] = useState("")
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const togglePasswordShow = () => {

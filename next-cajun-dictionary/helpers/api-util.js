@@ -1,5 +1,6 @@
 import db from './db';
 const bcrypt = require('bcrypt');
+const uniqid = require('uniqid');
 
 // TERMS
 
@@ -81,7 +82,16 @@ export const apiLogin = async({ username, password }) => {
 }
 
 export const apiRegister = async({ username, password }) => {
-
+    let id = uniqid();
+    const salt = bcrypt.genSaltSync(10);
+    password = await bcrypt.hashSync(password, salt);
+    const user = await db.query(
+        `
+        insert into users (user_id, username, password)
+        values ('${id}', '${username}', '${password}');
+        `
+    )
+    return user;
 }
 
 export const getUserById = async(userId) => {

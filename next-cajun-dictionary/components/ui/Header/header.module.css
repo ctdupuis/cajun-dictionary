@@ -3,6 +3,10 @@
     padding: .5%;
     justify-content: space-between;
     align-items: center;
+    background-image: url("/images/logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
 }
 
 .logo_container {
