@@ -85,13 +85,22 @@ export const apiRegister = async({ username, password }) => {
     let id = uniqid();
     const salt = bcrypt.genSaltSync(10);
     password = await bcrypt.hashSync(password, salt);
-    const user = await db.query(
+    const insertion = await db.query(
         `
         insert into users (user_id, username, password)
         values ('${id}', '${username}', '${password}');
         `
     )
-    return user;
+    const user = await db.query(
+        `
+        select user_id, username from users where username='${username}';
+        `
+    )
+    if (user) {
+        return user[0].pop();
+    } else {
+        return { error: 'There was an error creating that account'}
+    }
 }
 
 export const getUserById = async(userId) => {
@@ -131,6 +140,6 @@ export const removeLike = async(user_id, term_id) => {
         delete from likes where user_id='${user_id}' and term_id=${term_id};
         `
     )
-    let likes = await getLikesByTerm(term_id)
+    let likes = await getLikesByTerm(term_id);
     return likes;
 }
