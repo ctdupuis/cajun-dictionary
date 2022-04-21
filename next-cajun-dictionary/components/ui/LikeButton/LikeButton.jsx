@@ -4,26 +4,17 @@ import ModalContext from '../../../context/ModalContext';
 import { useContext } from 'react';
 import AuthForm from '../../forms/Auth/AuthForm';
 
-export default function LikeButton({ likes, likeFn, unlikeFn, user, disabled }) {
+export default function LikeButton({ likeCount, likeFn, unlikeFn, disabled, liked }) {
   const { setComponent } = useContext(ModalContext);
-
-  let likedByUser = null;
-
-  let targetLike;
-
-  if (likes && user) {
-    targetLike = likes.find(like => like.user_id === user.user_id)
-    targetLike ? likedByUser = true : null;
-  }
 
   return (
     <>
       <div className="flex center-just">
-          <div className={styles.num_likes}>{ likes ? likes.length : 0}</div>
+          <div className={styles.num_likes}>{ likeCount }</div>
           <div 
             className={disabled ? styles.disabled : styles.like_action}  
-            onClick={disabled ? null : (likedByUser ? unlikeFn : likeFn)}>      
-            { likedByUser ? 
+            onClick={disabled ? null : (liked ? unlikeFn : likeFn)}>      
+            { liked ? 
               <AiTwotoneLike /> 
               : 
               <AiOutlineLike />

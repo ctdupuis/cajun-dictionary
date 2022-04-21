@@ -17,7 +17,7 @@ export const TermProvider = ({ children }) => {
 
 
     return(
-        <TermContext.Provider value={{ terms }}>
+        <TermContext.Provider value={{ terms, setTerms }}>
             {children}
         </TermContext.Provider>
     )
