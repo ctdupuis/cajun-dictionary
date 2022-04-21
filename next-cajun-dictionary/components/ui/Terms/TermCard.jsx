@@ -2,6 +2,7 @@ import LikeButton from '../LikeButton/LikeButton';
 import moment from 'moment';
 import axios from 'axios';
 import AuthContext from '../../../context/AuthContext';
+import TermContext from '../../../context/TermContext';
 import { useContext } from 'react';
 import { API_STRING } from '../../../helpers/constants';
 import {termFormat} from '../../../helpers/formatting';
@@ -10,6 +11,8 @@ import {AiTwotoneLike, AiOutlineCalendar} from 'react-icons/ai';
 
 export default function TermCard({ term, type }) {
   const { user } = useContext(AuthContext);
+  const { setTerms } = useContext(TermContext);
+  
   let title;
   let date = moment().format("MM[/]DD[/]YYYY");
 
@@ -24,7 +27,7 @@ export default function TermCard({ term, type }) {
   }
 
   const updateLikes = likeObj => {
-    console.log("likeObj =>", likeObj)
+    // use setTerms
     term.likes = likeObj;
   }
   
@@ -53,7 +56,7 @@ export default function TermCard({ term, type }) {
     <section className="container bg-red1">
       {title}
       <div className="container bg-white">
-        <h3>{term.name}</h3>
+        <h3>{termFormat(term.name)}</h3>
         <span className="pronounce">pronounced <i>{term.pronunciation}</i></span>
 
         <div className={styles.definition}>

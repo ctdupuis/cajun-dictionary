@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import TermHandler from '../components/handlers/TermHandler';
 import TermCard from '../components/ui/Terms/TermCard';
 import AuthContext from '../context/AuthContext';
 import { getMostLikedTerm, getTermById } from '../helpers/api-util';

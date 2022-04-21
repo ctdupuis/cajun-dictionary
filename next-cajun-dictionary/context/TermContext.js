@@ -12,9 +12,8 @@ export const TermProvider = ({ children }) => {
             const response = await axios.get(`${API_STRING}/terms`)
             return response.data;
         }
-        getAllTerms()
-        .then(res => setTerms(res));
-    }, [terms])
+        getAllTerms().then(res => setTerms(res.terms));
+    }, [])
 
 
     return(

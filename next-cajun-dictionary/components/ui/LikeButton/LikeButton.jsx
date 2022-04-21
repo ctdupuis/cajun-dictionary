@@ -22,7 +22,7 @@ export default function LikeButton({ likes, likeFn, unlikeFn, user, disabled }) 
           <div className={styles.num_likes}>{ likes ? likes.length : 0}</div>
           <div 
             className={disabled ? styles.disabled : styles.like_action}  
-            onClick={likedByUser ? unlikeFn : likeFn}>      
+            onClick={disabled ? null : (likedByUser ? unlikeFn : likeFn)}>      
             { likedByUser ? 
               <AiTwotoneLike /> 
               : 

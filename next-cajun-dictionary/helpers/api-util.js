@@ -7,15 +7,46 @@ const uniqid = require('uniqid');
 export const getAllTerms = async() => {
     const res = await db.query(
       `
-      select t.term_id, t.name, t.pronunciation, t.definition, t.use_case, u.username 
-      from terms t
-      join users u
-      on t.user_id = u.user_id
-      order by name asc;
+        select t.term_id, t.name, t.pronunciation, t.definition, t.use_case, u.username, l.* as likes
+        from terms t
+        join users u
+        on t.user_id = u.user_id
+        join likes l 
+        on t.term_id = l.term_id
+        order by name asc;
       `
     )
     const terms = res[0];
-    return terms;
+
+    let termObj = {};
+    const termsWithLikes = await terms.map(term => {
+        let { term_id } = term;
+        let likeObj = { like_id: term.like_id, term_id: term.term_id, user_id: term.user_id};
+        if (termObj[term_id]) {
+            termObj[term_id]['likes'].push(likeObj);
+        } else {
+            termObj[term_id] = { 
+                term_id: term_id,
+                name: term.name,
+                definition: term.definition,
+                pronunciation: term.pronunciation,
+                use_case: term.use_case,
+                username: term.username,
+                likes: []
+             }
+            termObj[term_id]['likes'].push(likeObj);
+        }
+    })
+    const termsReturn = await manipulateTermData(termObj);
+    return termsReturn;
+}
+
+const manipulateTermData = termObj => {
+    let termArr = [];
+    for (const key in termObj) {
+        termArr.push(termObj[key])
+    }
+    return termArr.sort((a, b) => a.name.localeCompare(b.name))
 }
 
 export const getTermById = async(id) => {
