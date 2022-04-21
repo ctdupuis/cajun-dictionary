@@ -23,7 +23,7 @@ export default function LikeButton({ likeCount, likeFn, unlikeFn, disabled, like
       </div>
       { disabled ? 
         <div className={styles.disabled_message}>
-          <p>Please <a className={styles.link} href="#" onClick={() => setComponent(<AuthForm />)}>Log In</a> to vote</p>
+          <p><a className={styles.link} href="#" onClick={() => setComponent(<AuthForm />)}>Log In</a> to vote</p>
         </div> 
         : 
         null}
