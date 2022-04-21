@@ -8,12 +8,10 @@ body {
   padding: 0;
   margin: 0;
   background-color: lightgrey;
-  font-family: 'Permanent Marker', cursive;
   font-family: 'Play', sans-serif;
 }
 
-button, input {
-  font-family: 'Permanent Marker', cursive;
+button, input, textarea {
   font-family: 'Play', sans-serif;
   border-radius: 5px;
 }
